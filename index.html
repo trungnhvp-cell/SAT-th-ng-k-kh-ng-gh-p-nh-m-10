@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAT Math — Statistics of Ungrouped Data | Thầy Nguyễn Hữu Trung</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});"></script>
+<style>
+  :root{--sat-blue:#1B3A6B;--sat-blue-light:#2C5AA0;--sat-blue-pale:#EAF0F9;--sat-green:#4CAF50;--sat-red:#E53935;--sat-yellow:#F5B400;--sat-bg:#F5F7FA;--sat-text:#1a2332;--sat-gray:#5b6778;--sat-gold:#F5B400;--shadow:0 2px 8px rgba(27,58,107,.08);--shadow-lg:0 6px 24px rgba(27,58,107,.14)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI',Roboto,-apple-system,sans-serif;background:var(--sat-bg);color:var(--sat-text);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;padding:20px 32px;box-shadow:var(--shadow-lg);position:sticky;top:0;z-index:100}
+  .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-logo{width:44px;height:44px;border-radius:10px;background:#fff;color:var(--sat-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;letter-spacing:-1px}
+  .brand-title{font-size:20px;font-weight:700}
+  .brand-sub{font-size:12.5px;opacity:.85;font-weight:400}
+  .header-credit{font-size:12.5px;text-align:right;line-height:1.5;background:rgba(255,255,255,.12);padding:8px 16px;border-radius:10px;border-left:3px solid var(--sat-gold)}
+  .header-credit strong{color:var(--sat-gold);font-weight:800}
+  nav{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:84px;z-index:99;overflow-x:auto}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;padding:0 16px;gap:4px}
+  .nav-btn{background:none;border:none;padding:16px 20px;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--sat-gray);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s}
+  .nav-btn:hover{color:var(--sat-blue);background:var(--sat-blue-pale)}
+  .nav-btn.active{color:var(--sat-blue);border-bottom-color:var(--sat-blue);background:var(--sat-blue-pale)}
+  main{max-width:1200px;margin:0 auto;padding:32px 20px 80px}
+  .section{display:none;animation:fade .35s ease}
+  .section.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .page-title{font-size:28px;font-weight:800;color:var(--sat-blue);margin-bottom:6px}
+  .page-subtitle{color:var(--sat-gray);margin-bottom:28px;font-size:15px}
+  .card{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid #eef2f8}
+  .card h3{font-size:20px;color:var(--sat-blue);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--sat-blue-pale);display:flex;align-items:center;gap:10px}
+  .card h3 .num{background:var(--sat-blue);color:#fff;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+  .card h4{font-size:16px;color:var(--sat-blue-light);margin:16px 0 8px}
+  .card p,.card li{margin-bottom:8px}
+  .card ul,.card ol{padding-left:24px}
+  .card ol li,.card ul li{margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #eef2f8;vertical-align:top}
+  th{background:var(--sat-blue-pale);color:var(--sat-blue);font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.5px}
+  tr:hover td{background:#fafcff}
+  .formula-box{background:linear-gradient(135deg,#f0f5ff 0%,#e6efff 100%);border-left:4px solid var(--sat-blue);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:15.5px}
+  .formula-box strong{color:var(--sat-blue);font-weight:800}
+  .vocab-search{width:100%;padding:12px 16px;border:2px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:15px;margin-bottom:16px}
+  .vocab-search:focus{outline:none;border-color:var(--sat-blue-light)}
+  .vocab-table td:nth-child(2){font-family:'Courier New',monospace;color:var(--sat-blue);font-weight:600}
+  .speak-btn{background:none;border:none;cursor:pointer;color:var(--sat-blue);padding:4px 8px;border-radius:6px;transition:background .2s;font-size:15px}
+  .speak-btn:hover{background:var(--sat-blue-pale)}
+  .group-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+  .group-tab{padding:12px 22px;border-radius:10px;border:2px solid #e2e8f0;background:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;color:var(--sat-gray);transition:all .2s}
+  .group-tab:hover{border-color:var(--sat-blue-light)}
+  .group-tab.active{background:var(--sat-blue);color:#fff;border-color:var(--sat-blue)}
+  .group-tab .badge{display:inline-block;margin-left:6px;background:rgba(255,255,255,.25);padding:1px 8px;border-radius:8px;font-size:12px}
+  .group-tab:not(.active) .badge{background:var(--sat-blue-pale);color:var(--sat-blue)}
+  .group-panel{display:none}
+  .group-panel.active{display:block}
+  .q-card{background:#fff;border-radius:14px;padding:24px 26px;box-shadow:var(--shadow);margin-bottom:18px;border-left:5px solid var(--sat-blue-light);transition:border-color .3s}
+  .q-card.correct{border-left-color:var(--sat-green)}
+  .q-card.wrong{border-left-color:var(--sat-red)}
+  .q-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .q-num{background:var(--sat-blue);color:#fff;min-width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0}
+  .q-card.correct .q-num{background:var(--sat-green)}
+  .q-card.wrong .q-num{background:var(--sat-red)}
+  .q-text{font-size:16px;font-weight:500;flex:1}
+  .options{display:grid;gap:10px;margin-top:16px}
+  .option{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;border:2px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;transition:all .18s;font-family:inherit;font-size:15px;text-align:left;color:var(--sat-text);width:100%}
+  .option:hover:not(.disabled){border-color:var(--sat-blue-light);background:#fafcff;transform:translateX(2px)}
+  .option .letter{background:var(--sat-blue-pale);color:var(--sat-blue);width:28px;height:28px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+  .option.correct{border-color:var(--sat-green);background:#eaf7eb}
+  .option.correct .letter{background:var(--sat-green);color:#fff}
+  .option.wrong{border-color:var(--sat-red);background:#fdeaea}
+  .option.wrong .letter{background:var(--sat-red);color:#fff}
+  .option.disabled{cursor:default}
+  .option.disabled:hover{transform:none;background:inherit}
+  .option.selected{border-color:var(--sat-blue);background:#eaf0f9}
+  .option.selected .letter{background:var(--sat-blue);color:#fff}
+  .feedback{margin-top:14px;padding:14px 18px;border-radius:10px;font-size:14.5px;display:none;animation:slideIn .3s ease}
+  @keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .feedback.show{display:block}
+  .feedback.ok{background:#eaf7eb;border-left:4px solid var(--sat-green);color:#1f6b24}
+  .feedback.no{background:#fdeaea;border-left:4px solid var(--sat-red);color:#8b1c1c}
+  .feedback strong{display:block;margin-bottom:6px;font-size:15px}
+  .feedback .review{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(0,0,0,.12);font-size:13.5px;color:var(--sat-blue);font-weight:600}
+  .sat-hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:32px 36px;margin-bottom:24px;box-shadow:var(--shadow-lg)}
+  .sat-hero h2{font-size:24px;margin-bottom:8px;font-weight:800}
+  .sat-hero p{opacity:.9;font-size:14.5px;max-width:760px}
+  .sat-info-row{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+  .sat-info{background:rgba(255,255,255,.13);padding:10px 18px;border-radius:10px;font-size:13.5px}
+  .sat-info strong{font-size:17px;display:block;font-weight:800}
+  .btn{padding:11px 24px;border-radius:10px;border:none;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+  .btn-primary{background:var(--sat-blue);color:#fff}
+  .btn-primary:hover{background:var(--sat-blue-light);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+  .btn-primary:disabled{background:#b8c4d6;cursor:not-allowed;transform:none;box-shadow:none}
+  .btn-outline{background:#fff;color:var(--sat-blue);border:2px solid var(--sat-blue)}
+  .btn-outline:hover{background:var(--sat-blue-pale)}
+  .btn-sm{padding:7px 14px;font-size:12.5px;border-radius:8px}
+  .home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px}
+  .home-card{background:#fff;border-radius:14px;padding:24px;box-shadow:var(--shadow);cursor:pointer;transition:all .25s;border:2px solid transparent}
+  .home-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--sat-blue-light)}
+  .home-card .icon{font-size:32px;margin-bottom:10px}
+  .home-card h4{font-size:16px;color:var(--sat-blue);margin-bottom:6px}
+  .home-card p{font-size:13.5px;color:var(--sat-gray)}
+  .hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:36px 40px;margin-bottom:28px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(245,180,0,.12)}
+  .hero h1{font-size:30px;font-weight:800;margin-bottom:10px}
+  .hero p{opacity:.92;font-size:15.5px;max-width:760px;position:relative}
+  .hero-author{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:14px;font-size:13.5px;position:relative}
+  .hero-author .avatar{width:44px;height:44px;border-radius:50%;background:var(--sat-gold);color:var(--sat-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0}
+  .hero-author strong{color:var(--sat-gold);font-weight:800;font-size:14.5px;display:block}
+  .hero-author span{opacity:.9}
+  footer{background:linear-gradient(135deg,#0f2547 0%,var(--sat-blue) 100%);color:#fff;padding:36px 32px 24px;margin-top:40px}
+  .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+  .footer-col h4{color:var(--sat-gold);font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:800}
+  .footer-col p,.footer-col li{font-size:13.5px;opacity:.88;line-height:1.8}
+  .footer-col ul{list-style:none}
+  .footer-col ul li{cursor:pointer;transition:color .2s}
+  .footer-col ul li:hover{color:var(--sat-gold)}
+  .footer-author-card{background:rgba(255,255,255,.08);border-left:4px solid var(--sat-gold);padding:16px 20px;border-radius:10px;margin-top:8px}
+  .footer-author-card .name{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
+  .footer-author-card .role{font-size:13px;color:var(--sat-gold);font-weight:600;margin-bottom:8px}
+  .footer-author-card .phone{font-size:14px;font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:6px;background:rgba(245,180,0,.2);padding:6px 12px;border-radius:8px}
+  .footer-bottom{max-width:1200px;margin:32px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);text-align:center;font-size:12.5px;opacity:.75;line-height:1.8}
+  .footer-bottom strong{color:var(--sat-gold);font-weight:800}
+  .sat-set-selector{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:24px}
+  .set-card{background:#fff;border-radius:14px;padding:24px;box-shadow:var(--shadow);cursor:pointer;transition:all .25s;border:2px solid transparent;border-top:5px solid var(--sat-blue);position:relative}
+  .set-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--sat-blue-light);border-top-color:var(--sat-gold)}
+  .set-card .set-badge{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);padding:4px 12px;border-radius:8px;font-size:12px;font-weight:800;letter-spacing:.5px;margin-bottom:10px}
+  .set-card h4{font-size:18px;color:var(--sat-blue);margin-bottom:8px}
+  .set-card p{font-size:13.5px;color:var(--sat-gray);margin-bottom:14px;min-height:52px}
+  .set-card .set-meta{display:flex;gap:14px;font-size:12.5px;color:var(--sat-gray);border-top:1px dashed #e2e8f0;padding-top:12px;flex-wrap:wrap}
+  .set-card .set-meta strong{color:var(--sat-blue);font-weight:800}
+  .set-card .set-start{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--sat-blue);font-size:14px}
+  .test-topbar{background:#fff;border-radius:14px;padding:16px 22px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px;border:1px solid #eef2f8;position:sticky;top:140px;z-index:50}
+  .test-set-name{font-size:16px;font-weight:800;color:var(--sat-blue)}
+  .test-progress{font-size:13px;color:var(--sat-gray);margin-top:2px}
+  .timer-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .timer{font-family:'Courier New',monospace;font-size:24px;font-weight:800;background:var(--sat-blue);color:#fff;padding:8px 18px;border-radius:10px;letter-spacing:2px;min-width:110px;text-align:center;transition:background .3s}
+  .timer.warning{background:var(--sat-yellow);animation:pulse .8s infinite}
+  .timer.danger{background:var(--sat-red);animation:pulse .5s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  .test-layout{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start}
+  .test-sidebar{background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);border:1px solid #eef2f8;position:sticky;top:220px}
+  .test-sidebar h4{font-size:12.5px;color:var(--sat-blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--sat-blue-pale)}
+  .nav-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+  .nav-cell{aspect-ratio:1;border-radius:8px;border:2px solid #e2e8f0;background:#fff;font-family:inherit;font-weight:700;font-size:12px;color:var(--sat-gray);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;padding:0}
+  .nav-cell:hover{border-color:var(--sat-blue-light)}
+  .nav-cell.answered{background:var(--sat-blue);color:#fff;border-color:var(--sat-blue)}
+  .nav-cell.current{border-color:var(--sat-gold);box-shadow:0 0 0 3px rgba(245,180,0,.3)}
+  .nav-legend{margin-top:14px;font-size:12px;color:var(--sat-gray);display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px dashed #e2e8f0}
+  .nav-legend > div{display:flex;align-items:center;gap:8px}
+  .legend-box{width:14px;height:14px;border-radius:4px;border:2px solid #e2e8f0;background:#fff;display:inline-block}
+  .legend-box.answered{background:var(--sat-blue);border-color:var(--sat-blue)}
+  .legend-box.current{border-color:var(--sat-gold);box-shadow:0 0 0 2px rgba(245,180,0,.3)}
+  .test-main{min-width:0}
+  .test-main .q-card{margin-bottom:14px}
+  .test-nav-btns{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .test-nav-btns .btn{min-width:140px}
+  .result-hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:32px 36px;margin-bottom:22px;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .result-hero h2{font-size:22px;margin-bottom:6px}
+  .result-hero p{opacity:.9;font-size:14px}
+  .result-score{text-align:center;background:rgba(255,255,255,.14);padding:18px 30px;border-radius:14px;border:2px solid rgba(245,180,0,.5)}
+  .result-score .num{font-size:42px;font-weight:800;color:var(--sat-gold);line-height:1}
+  .result-score .den{font-size:16px;opacity:.85;margin-top:4px}
+  .result-score .pct{font-size:14px;font-weight:700;margin-top:8px;padding:4px 12px;background:rgba(255,255,255,.2);border-radius:8px;display:inline-block}
+  .level-banner{background:#fff;border-radius:14px;padding:22px 26px;box-shadow:var(--shadow);border-left:6px solid var(--sat-blue);display:flex;gap:20px;align-items:flex-start;margin-bottom:22px}
+  .level-icon{width:64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0;color:#fff}
+  .level-content{flex:1;min-width:0}
+  .level-content h3{font-size:22px;margin-bottom:8px;font-weight:800}
+  .level-content p{font-size:14.5px;color:var(--sat-text);margin-bottom:6px;line-height:1.65}
+  .level-content .level-advice{background:var(--sat-blue-pale);padding:12px 16px;border-radius:8px;margin-top:10px;font-size:14px;border-left:3px solid var(--sat-blue);line-height:1.65}
+  .result-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px}
+  .stat-box{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);border-left:4px solid var(--sat-blue)}
+  .stat-box.green{border-left-color:var(--sat-green)}
+  .stat-box.red{border-left-color:var(--sat-red)}
+  .stat-box.yellow{border-left-color:var(--sat-yellow)}
+  .stat-box .label{font-size:11.5px;color:var(--sat-gray);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .stat-box .value{font-size:26px;font-weight:800;color:var(--sat-blue);margin-top:4px;line-height:1.1}
+  .stat-box.green .value{color:var(--sat-green)}
+  .stat-box.red .value{color:var(--sat-red)}
+  .stat-box.yellow .value{color:#b8860b}
+  .stat-box .sub{font-size:12.5px;color:var(--sat-gray);margin-top:4px}
+  .result-section-title{font-size:18px;font-weight:800;color:var(--sat-blue);margin:28px 0 14px;display:flex;align-items:center;gap:10px}
+  .result-section-title .icon{background:var(--sat-blue-pale);color:var(--sat-blue);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .time-analysis{background:#fff;border-radius:14px;padding:22px 26px;box-shadow:var(--shadow);margin-bottom:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;border:1px solid #eef2f8}
+  .time-block{display:flex;gap:14px;align-items:flex-start}
+  .time-block .tb-icon{width:46px;height:46px;border-radius:11px;background:var(--sat-blue-pale);color:var(--sat-blue);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .time-block .tb-content{flex:1;min-width:0}
+  .time-block .tb-label{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--sat-gray);font-weight:700;margin-bottom:4px}
+  .time-block .tb-value{font-size:22px;font-weight:800;color:var(--sat-blue);line-height:1.1}
+  .time-block .tb-desc{font-size:12.5px;color:var(--sat-gray);margin-top:4px;line-height:1.5}
+  .topic-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+  .topic-table th,.topic-table td{padding:12px 16px;text-align:left;border-bottom:1px solid #eef2f8;vertical-align:middle}
+  .topic-table th{background:var(--sat-blue-pale);color:var(--sat-blue);font-size:12px;text-transform:uppercase;letter-spacing:.5px;font-weight:800}
+  .topic-table tr:last-child td{border-bottom:none}
+  .topic-bar{height:9px;background:#e2e8f0;border-radius:5px;overflow:hidden;min-width:100px;flex:1}
+  .topic-bar-cell{display:flex;align-items:center;gap:10px}
+  .topic-bar-fill{height:100%;background:var(--sat-green);transition:width .8s ease;border-radius:5px}
+  .topic-bar-fill.warn{background:var(--sat-yellow)}
+  .topic-bar-fill.bad{background:var(--sat-red)}
+  .topic-score{font-weight:800;color:var(--sat-blue);min-width:44px;text-align:right}
+  .topic-recommend{font-size:12.5px;color:var(--sat-gray);margin-top:6px;padding:8px 12px;background:#fafcff;border-radius:6px;border-left:2px solid var(--sat-blue-light);line-height:1.5;font-style:italic}
+  .roadmap{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:var(--shadow);border-left:6px solid var(--sat-gold);margin-bottom:22px}
+  .roadmap h3{font-size:19px;color:var(--sat-blue);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .roadmap .roadmap-sub{font-size:13.5px;color:var(--sat-gray);margin-bottom:18px;line-height:1.6}
+  .roadmap-phase{padding:18px 0;border-bottom:1px dashed #e2e8f0;display:flex;gap:18px;align-items:flex-start}
+  .roadmap-phase:last-child{border-bottom:none;padding-bottom:0}
+  .roadmap-phase .phase-num{width:48px;height:48px;border-radius:12px;background:var(--sat-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0}
+  .roadmap-phase.phase-1 .phase-num{background:var(--sat-red)}
+  .roadmap-phase.phase-2 .phase-num{background:#E8A317}
+  .roadmap-phase.phase-3 .phase-num{background:var(--sat-green)}
+  .roadmap-phase .phase-content{flex:1;min-width:0}
+  .roadmap-phase h4{font-size:15.5px;color:var(--sat-blue);margin-bottom:8px;font-weight:800;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+  .roadmap-phase .phase-time{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:6px}
+  .roadmap-phase ul{padding-left:22px;margin-top:6px}
+  .roadmap-phase li{font-size:13.5px;margin-bottom:6px;color:var(--sat-text);line-height:1.6}
+  .roadmap-phase .phase-actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .wrong-item{background:#fff;border-radius:12px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:14px;border-left:5px solid var(--sat-red)}
+  .wrong-item.unanswered{border-left-color:var(--sat-gray)}
+  .wrong-item .wrong-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+  .wrong-item .wrong-num{background:var(--sat-red);color:#fff;min-width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
+  .wrong-item.unanswered .wrong-num{background:var(--sat-gray)}
+  .wrong-item .wrong-q{font-size:15px;font-weight:600;flex:1;line-height:1.55}
+  .wrong-item .topic-tag{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);font-size:11.5px;padding:2px 10px;border-radius:6px;font-weight:700;margin-top:6px}
+  .wrong-item .ans-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;font-size:14px}
+  .wrong-item .ans-box{padding:10px 14px;border-radius:8px;background:#f5f7fa;border-left:3px solid var(--sat-gray)}
+  .wrong-item .ans-box.your{background:#fdeaea;border-left-color:var(--sat-red)}
+  .wrong-item .ans-box.correct{background:#eaf7eb;border-left-color:var(--sat-green)}
+  .wrong-item .ans-box .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--sat-gray);font-weight:700;margin-bottom:4px}
+  .wrong-item .ans-box .val{font-weight:600;color:var(--sat-text)}
+  .wrong-item .exp-box{background:var(--sat-blue-pale);padding:12px 16px;border-radius:8px;font-size:14px;border-left:3px solid var(--sat-blue);margin-top:10px;line-height:1.7}
+  .wrong-item .exp-box .lbl{font-weight:800;color:var(--sat-blue);margin-bottom:4px;font-size:13px}
+  .wrong-item .review-box{margin-top:10px;font-size:13.5px;color:var(--sat-blue);font-weight:600;padding:10px 14px;background:#fafcff;border-radius:8px;border:1px dashed var(--sat-blue-light)}
+  .result-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  @media(max-width:900px){.test-layout{grid-template-columns:1fr}.test-sidebar{position:static}.nav-grid{grid-template-columns:repeat(10,1fr)}.result-hero{grid-template-columns:1fr}}
+  @media(max-width:640px){header{padding:14px 16px}.brand-title{font-size:16px}.header-credit{font-size:11.5px;padding:6px 12px;text-align:left}.nav-btn{padding:14px 12px;font-size:13px}main{padding:20px 12px 60px}.card{padding:20px 18px}.sat-hero{padding:24px 20px}.timer{font-size:20px;padding:6px 14px;min-width:90px}.hero{padding:26px 22px}.hero h1{font-size:22px}.page-title{font-size:22px}.footer-inner{grid-template-columns:1fr;gap:24px}footer{padding:28px 18px 20px}.nav-grid{grid-template-columns:repeat(6,1fr)}.wrong-item .ans-row{grid-template-columns:1fr}.result-score .num{font-size:34px}.test-topbar{position:static}.test-sidebar{position:static}.level-banner{flex-direction:column;gap:14px;padding:18px}.level-icon{width:52px;height:52px;font-size:28px}.level-content h3{font-size:18px}.roadmap{padding:20px 18px}.roadmap-phase{flex-direction:column;gap:12px}.time-analysis{padding:18px;grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-logo">SAT</div>
+      <div><div class="brand-title">SAT Math — Statistics</div><div class="brand-sub">Ungrouped Data · Mean · Median · IQR · Standard Deviation</div></div>
+    </div>
+    <div class="header-credit">Thiết kế bởi <strong>Thầy Nguyễn Hữu Trung</strong><br>THPT Trần Phú • ☎ 0964 848 989</div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" data-tab="home">🏠 Trang chủ</button>
+    <button class="nav-btn" data-tab="knowledge">📐 Kiến thức</button>
+    <button class="nav-btn" data-tab="vocab">📚 Từ vựng</button>
+    <button class="nav-btn" data-tab="practice">✏️ Luyện tập</button>
+    <button class="nav-btn" data-tab="sat">⏱️ SAT Simulation</button>
+  </div>
+</nav>
+
+<main>
+
+<section id="home" class="section active">
+  <div class="hero">
+    <h1>Thống kê mẫu số liệu không ghép nhóm — Nền tảng SAT Math</h1>
+    <p>Chuyên đề song ngữ Việt–Anh về <strong>thống kê mô tả cho dữ liệu không ghép nhóm</strong>: số trung bình, trung vị, mốt, khoảng biến thiên, tứ phân vị, khoảng tứ phân vị (IQR), phương sai, độ lệch chuẩn, giá trị ngoại lệ và biểu đồ hộp. Đây là nội dung <strong>chiếm tỉ trọng lớn trong Digital SAT Math</strong> — phần Problem Solving &amp; Data Analysis. Hệ thống gồm <strong>kiến thức trọng tâm, 30 từ vựng có phiên âm, 30 câu luyện tập tức thì và 3 bộ SAT Simulation × 30 câu = 90 câu</strong> có đồng hồ, âm thanh và lộ trình cá nhân hóa.</p>
+    <div class="hero-author"><div class="avatar">NT</div><div><strong>Thầy Nguyễn Hữu Trung</strong><span>Giáo viên Toán — THPT Trần Phú • ☎ 0964 848 989</span></div></div>
+  </div>
+  <div class="home-grid">
+    <div class="home-card" onclick="switchTab('knowledge')"><div class="icon">📐</div><h4>1. Kiến thức cơ bản</h4><p>7 mục lý thuyết song ngữ: các số đo trung tâm, độ phân tán, tứ phân vị, IQR, phương sai, độ lệch chuẩn, biểu đồ hộp và giá trị ngoại lệ.</p></div>
+    <div class="home-card" onclick="switchTab('vocab')"><div class="icon">📚</div><h4>2. Từ vựng chuyên ngành</h4><p>30 từ khóa SAT Math kèm phiên âm IPA, nghĩa tiếng Việt, ví dụ minh họa và phát âm tự động.</p></div>
+    <div class="home-card" onclick="switchTab('practice')"><div class="icon">✏️</div><h4>3. Luyện tập 3 nhóm</h4><p>30 câu trắc nghiệm tiếng Anh chia 3 mức độ: Cơ bản — Trung bình — Nâng cao, có chấm điểm và gợi ý ôn lý thuyết.</p></div>
+    <div class="home-card" onclick="switchTab('sat')"><div class="icon">⏱️</div><h4>4. SAT Simulation</h4><p>90 câu hỏi chuẩn Digital SAT, đồng hồ 45 phút/bộ, hiệu ứng âm thanh, tổng kết điểm và lộ trình cá nhân hóa.</p></div>
+  </div>
+</section>
+
+<section id="knowledge" class="section">
+  <h2 class="page-title">📐 Kiến thức cơ bản — Thống kê mẫu số liệu không ghép nhóm</h2>
+  <p class="page-subtitle">Song ngữ Việt — Anh · Trọng tâm hiểu bản chất để vận dụng vào SAT Math</p>
+
+  <div class="card">
+    <h3><span class="num">I</span> Các số đo trung tâm — Measures of Center</h3>
+    <table>
+      <tr><th>Khái niệm</th><th>Tiếng Việt</th><th>English</th></tr>
+      <tr><td><strong>Mean</strong></td><td>Số trung bình cộng = tổng các giá trị chia cho số giá trị: \(\bar{x} = \dfrac{x_1 + x_2 + \dots + x_n}{n}\).</td><td>The arithmetic mean: \(\bar{x} = \dfrac{\sum x_i}{n}\). Sensitive to outliers.</td></tr>
+      <tr><td><strong>Median</strong></td><td>Trung vị: sau khi sắp xếp dữ liệu tăng dần, là giá trị ở giữa (nếu n lẻ) hoặc trung bình cộng của hai giá trị giữa (nếu n chẵn).</td><td>The middle value in sorted data. If n is odd, the middle value; if n is even, the average of the two middle values. Resistant to outliers.</td></tr>
+      <tr><td><strong>Mode</strong></td><td>Mốt: giá trị xuất hiện nhiều nhất. Một mẫu có thể có nhiều mốt hoặc không có mốt.</td><td>The most frequent value. Data may have multiple modes or no mode.</td></tr>
+    </table>
+    <div class="formula-box">
+      <strong>Công thức (Formulas):</strong> \[ \bar{x} = \frac{x_1 + x_2 + \dots + x_n}{n} \qquad \text{Sum} = \bar{x} \cdot n \]
+    </div>
+    <div class="formula-box">
+      <strong>Ví dụ (Example):</strong> Cho mẫu \(\{3, 7, 8, 8, 10\}\).<br>
+      • Mean \(= \dfrac{3+7+8+8+10}{5} = \dfrac{36}{5} = 7.2\).<br>
+      • Median \(= 8\) (giá trị thứ 3 sau khi sắp xếp).<br>
+      • Mode \(= 8\) (xuất hiện 2 lần).
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">II</span> Khoảng biến thiên &amp; Tứ phân vị — Range &amp; Quartiles</h3>
+    <table>
+      <tr><th>Khái niệm</th><th>Định nghĩa (Definition)</th></tr>
+      <tr><td><strong>Range</strong> (khoảng biến thiên)</td><td>\(\text{Range} = x_{\max} - x_{\min}\) — hiệu giữa giá trị lớn nhất và nhỏ nhất.</td></tr>
+      <tr><td><strong>Q1</strong> (tứ phân vị thứ nhất)</td><td>Median của nửa dưới dữ liệu (25th percentile) — 25% dữ liệu nằm dưới Q1.</td></tr>
+      <tr><td><strong>Q2</strong> (tứ phân vị thứ hai)</td><td>Median của toàn bộ dữ liệu (50th percentile).</td></tr>
+      <tr><td><strong>Q3</strong> (tứ phân vị thứ ba)</td><td>Median của nửa trên dữ liệu (75th percentile) — 75% dữ liệu nằm dưới Q3.</td></tr>
+      <tr><td><strong>IQR</strong> (khoảng tứ phân vị)</td><td>\(\text{IQR} = Q_3 - Q_1\) — độ rộng của 50% dữ liệu ở giữa. Không bị ảnh hưởng bởi outliers.</td></tr>
+    </table>
+    <div class="formula-box">
+      <strong>Quy trình tìm Q1, Q3 (How to find Q1, Q3):</strong><br>
+      ① Sắp xếp dữ liệu tăng dần.<br>
+      ② Tìm Q2 (median toàn bộ).<br>
+      ③ Q1 = median của nửa dưới (không tính Q2 nếu n lẻ).<br>
+      ④ Q3 = median của nửa trên (không tính Q2 nếu n lẻ).
+    </div>
+    <div class="formula-box">
+      <strong>Ví dụ (Example):</strong> Dữ liệu \(\{2, 4, 6, 8, 10, 12, 14, 16\}\).<br>
+      \(n = 8\), Q2 = \(\dfrac{8+10}{2} = 9\); Q1 = \(\dfrac{4+6}{2} = 5\); Q3 = \(\dfrac{12+14}{2} = 13\).<br>
+      \(\text{IQR} = 13 - 5 = 8\).
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">III</span> Phương sai &amp; Độ lệch chuẩn — Variance &amp; Standard Deviation</h3>
+    <table>
+      <tr><th>Khái niệm</th><th>Công thức (Formula)</th></tr>
+      <tr><td><strong>Phương sai</strong> (Variance) — dân số (population)</td><td>\(\sigma^2 = \dfrac{\sum (x_i - \mu)^2}{N}\)</td></tr>
+      <tr><td><strong>Phương sai mẫu</strong> (sample variance)</td><td>\(s^2 = \dfrac{\sum (x_i - \bar{x})^2}{n-1}\) (SAT thường dùng population)</td></tr>
+      <tr><td><strong>Độ lệch chuẩn</strong> (Standard Deviation)</td><td>\(\sigma = \sqrt{\sigma^2}\) — trung bình độ lệch của các giá trị so với mean.</td></tr>
+    </table>
+    <div class="formula-box">
+      <strong>Ý nghĩa (Meaning):</strong> Standard deviation càng <strong>lớn</strong> ⇒ dữ liệu càng <strong>phân tán</strong>; càng <strong>nhỏ</strong> ⇒ dữ liệu càng <strong>tập trung</strong> quanh mean. Std = 0 khi mọi giá trị bằng nhau.
+    </div>
+    <div class="formula-box">
+      <strong>Ví dụ (Example):</strong> Cho \(\{2, 4, 6, 8\}\). Mean \(= 5\); deviations: \(-3, -1, 1, 3\).<br>
+      Variance \(\sigma^2 = \dfrac{9+1+1+9}{4} = \dfrac{20}{4} = 5\); Standard deviation \(\sigma = \sqrt{5} \approx 2.24\).
+    </div>
+    <h4>Tính chất quan trọng (Key properties)</h4>
+    <ul>
+      <li>Nếu cộng thêm hằng số \(c\) vào mọi giá trị: mean tăng \(c\), <strong>std và variance không đổi</strong>.</li>
+      <li>Nếu nhân mọi giá trị với \(k > 0\): mean × \(k\), <strong>std × \(k\), variance × \(k^2\)</strong>.</li>
+      <li>Tổng các độ lệch so với mean luôn bằng 0: \(\sum (x_i - \bar{x}) = 0\).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">IV</span> Biểu đồ hộp &amp; Tóm tắt 5 số — Box Plot &amp; Five-Number Summary</h3>
+    <table>
+      <tr><th>Khái niệm</th><th>Định nghĩa (Definition)</th></tr>
+      <tr><td><strong>Five-number summary</strong></td><td>\(\{\min,\; Q_1,\; Q_2,\; Q_3,\; \max\}\) — tóm tắt phân bố dữ liệu bằng 5 giá trị.</td></tr>
+      <tr><td><strong>Box plot</strong> (biểu đồ hộp)</td><td>Hộp (box) từ Q1 đến Q3, đường kẻ giữa là median, hai râu (whiskers) kéo đến min và max (hoặc đến giá trị không ngoại lệ gần nhất).</td></tr>
+      <tr><td><strong>Whiskers</strong></td><td>Đoạn thẳng từ Q1 xuống min và từ Q3 lên max (hoặc đến 1.5 × IQR). Điểm ngoại lệ biểu diễn bằng dấu chấm tròn.</td></tr>
+    </table>
+    <div class="formula-box">
+      <strong>Cách đọc (How to read):</strong><br>
+      • Chiều rộng hộp = IQR = Q3 − Q1 ⇒ 50% dữ liệu ở giữa nằm trong hộp.<br>
+      • Đường trong hộp = median.<br>
+      • Nếu median gần Q1 ⇒ phân bố lệch phải; gần Q3 ⇒ lệch trái.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">V</span> Giá trị ngoại lệ — Outliers</h3>
+    <table>
+      <tr><th>Khái niệm</th><th>Quy tắc (Rule)</th></tr>
+      <tr><td><strong>Outlier</strong> (giá trị ngoại lệ)</td><td>Một giá trị được coi là ngoại lệ nếu nằm ngoài khoảng: \([Q_1 - 1.5 \cdot \text{IQR},\; Q_3 + 1.5 \cdot \text{IQR}]\).</td></tr>
+    </table>
+    <div class="formula-box">
+      <strong>Quy tắc 1.5 × IQR (1.5 × IQR rule):</strong><br>
+      Lower fence = \(Q_1 - 1.5 \cdot \text{IQR}\) &nbsp;•&nbsp; Upper fence = \(Q_3 + 1.5 \cdot \text{IQR}\)<br>
+      Giá trị &lt; lower fence hoặc &gt; upper fence ⇒ outlier.
+    </div>
+    <div class="formula-box">
+      <strong>Ví dụ (Example):</strong> \(Q_1 = 10\), \(Q_3 = 20\) ⇒ \(\text{IQR} = 10\).<br>
+      Lower fence \(= 10 - 15 = -5\); upper fence \(= 20 + 15 = 35\).<br>
+      Giá trị \(40 > 35\) ⇒ 40 là outlier.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">VI</span> So sánh phân bố — Comparing Distributions</h3>
+    <table>
+      <tr><th>Dạng phân bố</th><th>Quan hệ mean – median</th><th>Hình dạng</th></tr>
+      <tr><td><strong>Symmetric</strong> (đối xứng)</td><td>mean ≈ median</td><td>Đuôi hai bên cân bằng</td></tr>
+      <tr><td><strong>Skewed right</strong> (lệch phải / positive skew)</td><td>mean &gt; median</td><td>Đuôi kéo dài về phía phải (giá trị lớn)</td></tr>
+      <tr><td><strong>Skewed left</strong> (lệch trái / negative skew)</td><td>mean &lt; median</td><td>Đuôi kéo dài về phía trái (giá trị nhỏ)</td></tr>
+    </table>
+    <div class="formula-box">
+      <strong>Quy tắc SAT (SAT rule):</strong> Khi so sánh std của hai bộ dữ liệu, bộ nào có các giá trị <strong>xa mean hơn</strong> ⇒ std lớn hơn. Khi so sánh mean và median: mean bị "kéo" về phía đuôi dài của phân bố.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">VII</span> Ứng dụng trong SAT Math — Applications in the Digital SAT</h3>
+    <ul>
+      <li><strong>Data interpretation:</strong> Đọc bảng số liệu, tính mean / median / range từ bảng tần số.</li>
+      <li><strong>Effect of adding/removing values:</strong> Khi thêm một giá trị, mean thay đổi theo công thức \(\dfrac{S + x}{n+1}\); median ít bị ảnh hưởng hơn.</li>
+      <li><strong>Weighted mean:</strong> Mean kết hợp = \(\dfrac{n_1 \bar{x}_1 + n_2 \bar{x}_2}{n_1 + n_2}\).</li>
+      <li><strong>Standard deviation comparison:</strong> So sánh độ phân tán của hai bộ dữ liệu từ bảng hoặc biểu đồ.</li>
+      <li><strong>Box plot interpretation:</strong> Xác định median, IQR, outliers và so sánh hai phân bố.</li>
+    </ul>
+    <div class="formula-box">
+      <strong>Chiến lược SAT (SAT Strategy):</strong><br>
+      ① Đọc kỹ câu hỏi: mean? median? range? IQR? std? outlier?<br>
+      ② Với mean: dùng sum = mean × n; nếu thêm giá trị \(x\): mean mới = \(\dfrac{S + x}{n+1}\).<br>
+      ③ Với median &amp; IQR: sắp xếp dữ liệu trước.<br>
+      ④ Với std: so sánh khoảng cách các giá trị đến mean — không cần tính chính xác nếu chỉ so sánh.
+    </div>
+  </div>
+</section>
+
+<section id="vocab" class="section">
+  <h2 class="page-title">📚 Hệ thống từ vựng SAT Math — Statistics</h2>
+  <p class="page-subtitle">30 từ khóa chuyên ngành kèm phiên âm IPA — Nhấn 🔊 để nghe phát âm</p>
+  <div class="card">
+    <input type="text" id="vocabSearch" class="vocab-search" placeholder="🔍 Tìm kiếm từ vựng (tiếng Anh hoặc tiếng Việt)...">
+    <div style="overflow-x:auto">
+      <table class="vocab-table" id="vocabTable">
+        <thead><tr><th>#</th><th>English</th><th>Phiên âm (IPA)</th><th>Nghĩa</th><th>Ví dụ</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="practice" class="section">
+  <h2 class="page-title">✏️ Luyện tập trắc nghiệm — Statistics</h2>
+  <p class="page-subtitle">30 câu tiếng Anh · Chấm điểm ngay · Gợi ý ôn lại lý thuyết nếu sai</p>
+  <div class="group-tabs">
+    <button class="group-tab active" data-group="1">🟢 Nhóm 1 — Cơ bản <span class="badge">10</span></button>
+    <button class="group-tab" data-group="2">🟡 Nhóm 2 — Trung bình <span class="badge">10</span></button>
+    <button class="group-tab" data-group="3">🔴 Nhóm 3 — Nâng cao <span class="badge">10</span></button>
+  </div>
+  <div class="group-panel active" id="panel-1"></div>
+  <div class="group-panel" id="panel-2"></div>
+  <div class="group-panel" id="panel-3"></div>
+</section>
+
+<section id="sat" class="section">
+  <h2 class="page-title">⏱️ SAT Digital Simulation — Statistics of Ungrouped Data</h2>
+  <p class="page-subtitle">3 bộ đề × 30 câu — Mô phỏng cấu trúc Digital SAT Math · Đồng hồ 45 phút</p>
+  <div class="sat-hero">
+    <h2>📘 Digital SAT Math — Problem Solving &amp; Data Analysis</h2>
+    <p>Mỗi bộ gồm <strong>30 câu hỏi tuyển chọn</strong>, thời gian <strong>45 phút</strong>. Sau khi nộp bài, bạn nhận <strong>bảng tổng kết điểm</strong>, <strong>đánh giá năng lực</strong>, <strong>lộ trình ôn tập cá nhân hóa</strong> và <strong>phân tích chi tiết từng câu sai</strong>.</p>
+    <div class="sat-info-row">
+      <div class="sat-info"><strong>90</strong>Câu hỏi (3 bộ)</div>
+      <div class="sat-info"><strong>45:00</strong>Mỗi bộ</div>
+      <div class="sat-info"><strong>Calculator</strong>Allowed</div>
+      <div class="sat-info"><strong>A–D</strong>4 lựa chọn</div>
+    </div>
+  </div>
+  <div id="satSetSelector" class="sat-set-selector"></div>
+  <div id="satTestScreen" style="display:none">
+    <div class="test-topbar">
+      <div>
+        <div class="test-set-name" id="testSetName">Bộ 1</div>
+        <div class="test-progress" id="testProgress">Câu 1 / 30 · Đã trả lời 0/30</div>
+      </div>
+      <div class="timer-wrap">
+        <div class="timer" id="testTimer">45:00</div>
+        <button class="btn btn-primary" id="btnSubmitTest">📝 Nộp bài</button>
+        <button class="btn btn-outline" id="btnForceResult">📊 Xem kết quả ngay</button>
+        <button class="btn btn-outline" id="btnQuitTest">✕ Thoát</button>
+      </div>
+    </div>
+    <div class="test-layout">
+      <aside class="test-sidebar">
+        <h4>Bảng câu hỏi</h4>
+        <div class="nav-grid" id="navGrid"></div>
+        <div class="nav-legend">
+          <div><span class="legend-box current"></span> Câu đang xem</div>
+          <div><span class="legend-box answered"></span> Đã trả lời</div>
+          <div><span class="legend-box"></span> Chưa trả lời</div>
+        </div>
+      </aside>
+      <div class="test-main">
+        <div class="q-card" id="testQuestionCard">
+          <div class="q-head"><div class="q-num" id="testQNum">1</div><div class="q-text" id="testQText"></div></div>
+          <div class="options" id="testOptions"></div>
+        </div>
+        <div class="test-nav-btns">
+          <button class="btn btn-outline" id="btnPrev">← Câu trước</button>
+          <button class="btn btn-primary" id="btnNext">Câu tiếp →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="satResultScreen" style="display:none"></div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>📘 Về chuyên đề</h4>
+      <p>Web ôn thi SAT Math chuyên đề <strong>Statistics of Ungrouped Data</strong> — Thống kê mẫu số liệu không ghép nhóm, thiết kế cho học sinh lớp 12 chuẩn bị Digital SAT. Nội dung song ngữ, bài tập sát cấu trúc SAT và hệ thống phân tích kết quả cá nhân hóa.</p>
+      <div class="footer-author-card"><div class="name">👨‍🏫 Thầy Nguyễn Hữu Trung</div><div class="role">Giáo viên Toán — THPT Trần Phú</div><div class="phone">📞 0964 848 989</div></div>
+    </div>
+    <div class="footer-col">
+      <h4>🧭 Điều hướng</h4>
+      <ul>
+        <li onclick="switchTab('home')">🏠 Trang chủ</li>
+        <li onclick="switchTab('knowledge')">📐 Kiến thức cơ bản</li>
+        <li onclick="switchTab('vocab')">📚 Từ vựng SAT Math</li>
+        <li onclick="switchTab('practice')">✏️ Luyện tập 3 nhóm</li>
+        <li onclick="switchTab('sat')">⏱️ SAT Simulation</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>📞 Liên hệ</h4>
+      <ul>
+        <li>👤 <strong>Thầy Nguyễn Hữu Trung</strong></li>
+        <li>🏫 THPT Trần Phú</li>
+        <li>☎️ 0964 848 989</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <strong>Thầy Nguyễn Hữu Trung — THPT Trần Phú</strong></p>
+    <p style="margin-top:6px">Made with ❤️ for high school students preparing for the Digital SAT</p>
+  </div>
+</footer>
+
+<script>
+/* ============ TAB SWITCHING ============ */
+function switchTab(tab){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  document.querySelector('.nav-btn[data-tab="'+tab+'"]').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav-btn').forEach(btn=>{btn.addEventListener('click',()=>switchTab(btn.dataset.tab));});
+
+/* ============ SOUND ============ */
+let audioCtx=null;
+function getCtx(){if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended') audioCtx.resume();return audioCtx;}
+function playDing(){try{const ctx=getCtx();[880,1320].forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sine';o.frequency.setValueAtTime(f,ctx.currentTime+i*0.08);g.gain.setValueAtTime(0.18,ctx.currentTime+i*0.08);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.08+0.35);o.start(ctx.currentTime+i*0.08);o.stop(ctx.currentTime+i*0.08+0.4);});}catch(e){}}
+function playBuzz(){try{const ctx=getCtx();const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sawtooth';o.frequency.setValueAtTime(180,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(90,ctx.currentTime+0.3);g.gain.setValueAtTime(0.15,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.35);o.start(ctx.currentTime);o.stop(ctx.currentTime+0.4);}catch(e){}}
+function playFanfare(){try{const ctx=getCtx();[523,659,784,1046].forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sine';o.frequency.setValueAtTime(f,ctx.currentTime+i*0.12);g.gain.setValueAtTime(0.2,ctx.currentTime+i*0.12);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.12+0.5);o.start(ctx.currentTime+i*0.12);o.stop(ctx.currentTime+i*0.12+0.6);});}catch(e){}}
+
+/* ============ VOCABULARY ============ */
+const vocab=[
+  ["statistics","/stəˈtɪstɪks/","thống kê","Statistics studies data."],
+  ["mean","/miːn/","số trung bình","The mean of 2,4,6 is 4."],
+  ["median","/ˈmiːdiən/","trung vị","The median of 1,3,5 is 3."],
+  ["mode","/moʊd/","mốt","The mode is the most frequent value."],
+  ["range","/reɪndʒ/","khoảng biến thiên","Range = max − min."],
+  ["quartile","/ˈkwɔːrtaɪl/","tứ phân vị","Q1, Q2, Q3 split data into four parts."],
+  ["interquartile range","/ˌɪntərˈkwɔːrtaɪl reɪndʒ/","khoảng tứ phân vị","IQR = Q3 − Q1."],
+  ["variance","/ˈveriəns/","phương sai","Variance measures spread."],
+  ["standard deviation","/ˈstændərd ˌdiːviˈeɪʃn/","độ lệch chuẩn","Standard deviation is the square root of variance."],
+  ["outlier","/ˈaʊtlaɪər/","giá trị ngoại lệ","An outlier lies far from the rest."],
+  ["data set","/ˈdeɪtə set/","tập dữ liệu","A set of numbers."],
+  ["frequency","/ˈfriːkwənsi/","tần số","How often a value occurs."],
+  ["distribution","/ˌdɪstrɪˈbjuːʃn/","phân bố","The shape of the data."],
+  ["symmetric","/sɪˈmetrɪk/","đối xứng","A symmetric distribution has mean = median."],
+  ["skewed","/skjuːd/","lệch","Right-skewed: mean > median."],
+  ["skewed right","/skjuːd raɪt/","lệch phải","Tail stretches to the right."],
+  ["skewed left","/skjuːd left/","lệch trái","Tail stretches to the left."],
+  ["box plot","/bɑːks plɑːt/","biểu đồ hộp","A box plot shows the five-number summary."],
+  ["five-number summary","/faɪv ˈnʌmbər ˈsʌməri/","tóm tắt 5 số","Min, Q1, median, Q3, max."],
+  ["percentile","/pərˈsentaɪl/","phân vị","The 90th percentile: 90% below."],
+  ["deviation","/ˌdiːviˈeɪʃn/","độ lệch","Deviation = value − mean."],
+  ["spread","/spred/","độ phân tán","Larger spread → larger std."],
+  ["center","/ˈsentər/","trung tâm","Mean and median measure center."],
+  ["average","/ˈævərɪdʒ/","trung bình","Same as mean."],
+  ["sum","/sʌm/","tổng","Sum = mean × n."],
+  ["population","/ˌpɑːpjuˈleɪʃn/","tổng thể","All items of interest."],
+  ["sample","/ˈsæmpl/","mẫu","A subset of the population."],
+  ["normal distribution","/ˈnɔːrml ˌdɪstrɪˈbjuːʃn/","phân bố chuẩn","Bell-shaped, mean = median = mode."],
+  ["bell curve","/bel kɜːrv/","đường cong hình chuông","Symmetric bell shape."],
+  ["weighted mean","/ˈweɪtɪd miːn/","trung bình có trọng số","Weighted by frequencies."]
+];
+
+function renderVocab(filter){
+  filter = filter || "";
+  const tbody=document.querySelector('#vocabTable tbody');
+  tbody.innerHTML='';
+  const f=filter.toLowerCase().trim();
+  vocab.forEach((v,i)=>{
+    if(f && !(v[0].toLowerCase().indexOf(f)>=0||v[2].toLowerCase().indexOf(f)>=0)) return;
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td>'+(i+1)+'</td><td>'+v[0]+'</td><td>'+v[1]+'</td><td>'+v[2]+'</td><td>'+v[3]+'</td><td><button class="speak-btn" data-word="'+v[0]+'" title="Phát âm">🔊</button></td>';
+    tbody.appendChild(tr);
+  });
+  if(window.renderMathInElement){renderMathInElement(tbody,{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+}
+document.getElementById('vocabSearch').addEventListener('input',function(e){renderVocab(e.target.value);});
+document.addEventListener('click',function(e){
+  if(e.target.classList.contains('speak-btn')){
+    const word=e.target.dataset.word;
+    if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(word);u.lang='en-US';u.rate=0.9;speechSynthesis.speak(u);}
+  }
+});
+renderVocab();
+
+/* ============ PRACTICE DATA 30 câu ============ */
+const practiceData={
+  1:[
+    {q:"What is the mean of \\(\\{2, 4, 6, 8\\}\\)?",opts:["\\(4\\)","\\(5\\)","\\(6\\)","\\(20\\)"],ans:1,exp:"Mean \\(=\\dfrac{2+4+6+8}{4} = \\dfrac{20}{4} = 5\\).",review:"Ôn mục I — Mean"},
+    {q:"What is the median of \\(\\{3, 7, 1, 9, 5\\}\\)?",opts:["\\(3\\)","\\(5\\)","\\(7\\)","\\(9\\)"],ans:1,exp:"Sắp xếp: \\(\\{1, 3, 5, 7, 9\\}\\). Giá trị giữa là 5.",review:"Ôn mục I — Median"},
+    {q:"What is the mode of \\(\\{1, 2, 2, 3, 4, 2\\}\\)?",opts:["\\(1\\)","\\(2\\)","\\(3\\)","\\(4\\)"],ans:1,exp:"Giá trị 2 xuất hiện 3 lần, nhiều nhất.",review:"Ôn mục I — Mode"},
+    {q:"What is the range of \\(\\{10, 15, 20, 25, 30\\}\\)?",opts:["\\(10\\)","\\(15\\)","\\(20\\)","\\(30\\)"],ans:2,exp:"Range = max − min = 30 − 10 = 20.",review:"Ôn mục II — Range"},
+    {q:"What is the mean of \\(\\{5, 5, 5, 5\\}\\)?",opts:["\\(0\\)","\\(5\\)","\\(20\\)","\\(25\\)"],ans:1,exp:"Mean \\(= \\dfrac{20}{4} = 5\\).",review:"Ôn mục I — Mean"},
+    {q:"What is the median of \\(\\{1, 2, 3, 4, 5, 6\\}\\)?",opts:["\\(3\\)","\\(3.5\\)","\\(4\\)","\\(4.5\\)"],ans:1,exp:"\\(n=6\\) chẵn ⇒ median = \\(\\dfrac{3+4}{2} = 3.5\\).",review:"Ôn mục I — Median"},
+    {q:"The mean of 5 numbers is 10. What is their sum?",opts:["\\(15\\)","\\(50\\)","\\(100\\)","\\(5\\)"],ans:1,exp:"Sum = mean × n = 10 × 5 = 50.",review:"Ôn mục I — Mean"},
+    {q:"What is the mode of \\(\\{1, 1, 2, 3, 4\\}\\)?",opts:["\\(1\\)","\\(2\\)","\\(3\\)","\\(4\\)"],ans:0,exp:"Giá trị 1 xuất hiện 2 lần, nhiều nhất.",review:"Ôn mục I — Mode"},
+    {q:"What is the range of \\(\\{-3, 0, 5, 10\\}\\)?",opts:["\\(10\\)","\\(13\\)","\\(7\\)","\\(15\\)"],ans:1,exp:"Range = 10 − (−3) = 13.",review:"Ôn mục II — Range"},
+    {q:"If 10 is added to every value in a data set, how does the mean change?",opts:["Unchanged","Increases by 10","Increases by 5","Doubles"],ans:1,exp:"Cộng hằng số vào mọi giá trị ⇒ mean tăng đúng hằng số đó.",review:"Ôn mục III — Tính chất mean"}
+  ],
+  2:[
+    {q:"What is Q2 of \\(\\{1, 3, 5, 7, 9\\}\\)?",opts:["\\(3\\)","\\(5\\)","\\(7\\)","\\(9\\)"],ans:1,exp:"Q2 = median = 5.",review:"Ôn mục II — Q2"},
+    {q:"Find the IQR of \\(\\{1, 2, 3, 4, 5, 6, 7, 8\\}\\).",opts:["\\(3\\)","\\(4\\)","\\(5\\)","\\(6\\)"],ans:1,exp:"Q1 = median\\(\\{1,2,3,4\\}\\) = 2.5; Q3 = median\\(\\{5,6,7,8\\}\\) = 6.5; IQR = 4.",review:"Ôn mục II — IQR"},
+    {q:"Find the variance (population) of \\(\\{2, 4, 6, 8\\}\\).",opts:["\\(2\\)","\\(4\\)","\\(5\\)","\\(8\\)"],ans:2,exp:"Mean = 5; squared deviations: 9, 1, 1, 9 ⇒ sum = 20; variance = 20/4 = 5.",review:"Ôn mục III — Variance"},
+    {q:"What is the standard deviation of \\(\\{5, 5, 5, 5\\}\\)?",opts:["\\(0\\)","\\(1\\)","\\(5\\)","\\(25\\)"],ans:0,exp:"Mọi giá trị bằng nhau ⇒ std = 0.",review:"Ôn mục III — Standard deviation"},
+    {q:"In a right-skewed distribution, which is true?",opts:["mean &lt; median","mean = median","mean &gt; median","Cannot compare"],ans:2,exp:"Lệch phải ⇒ mean bị kéo về phía đuôi lớn ⇒ mean &gt; median.",review:"Ôn mục VI — Skewness"},
+    {q:"A larger standard deviation indicates:",opts:["Less spread","More spread","Higher mean","Lower mean"],ans:1,exp:"Std lớn ⇒ dữ liệu phân tán rộng hơn quanh mean.",review:"Ôn mục III — Standard deviation"},
+    {q:"If every value is multiplied by 3, the standard deviation is:",opts:["Unchanged","Multiplied by 3","Multiplied by 9","Multiplied by √3"],ans:1,exp:"Nhân dữ liệu với k > 0 ⇒ std nhân với k.",review:"Ôn mục III — Tính chất std"},
+    {q:"What is the mean of \\(\\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}\\)?",opts:["\\(5\\)","\\(5.5\\)","\\(6\\)","\\(10\\)"],ans:1,exp:"Mean = \\(\\dfrac{55}{10} = 5.5\\).",review:"Ôn mục I — Mean"},
+    {q:"What is the median of \\(\\{10, 20, 30, 40, 50, 60\\}\\)?",opts:["\\(30\\)","\\(35\\)","\\(40\\)","\\(45\\)"],ans:1,exp:"\\(n=6\\) chẵn ⇒ median = \\(\\dfrac{30+40}{2} = 35\\).",review:"Ôn mục I — Median"},
+    {q:"Find Q1 of \\(\\{1, 2, 3, 4, 5, 6, 7, 8\\}\\).",opts:["\\(2\\)","\\(2.5\\)","\\(3\\)","\\(3.5\\)"],ans:1,exp:"Nửa dưới \\(\\{1, 2, 3, 4\\}\\) ⇒ Q1 = \\(\\dfrac{2+3}{2} = 2.5\\).",review:"Ôn mục II — Q1"}
+  ],
+  3:[
+    {q:"An outlier is a value outside which interval?",opts:["\\([Q_1, Q_3]\\)","\\([Q_1 - \\text{IQR}, Q_3 + \\text{IQR}]\\)","\\([Q_1 - 1.5\\,\\text{IQR}, Q_3 + 1.5\\,\\text{IQR}]\\)","\\([Q_1 - 2\\,\\text{IQR}, Q_3 + 2\\,\\text{IQR}]\\)"],ans:2,exp:"Quy tắc 1.5 × IQR: outlier nếu nằm ngoài \\([Q_1 - 1.5\\,\\text{IQR},\\; Q_3 + 1.5\\,\\text{IQR}]\\).",review:"Ôn mục V — Outliers"},
+    {q:"If \\(Q_1 = 10\\), \\(Q_3 = 20\\), which value is an outlier?",opts:["\\(12\\)","\\(15\\)","\\(18\\)","\\(40\\)"],ans:3,exp:"IQR = 10, upper fence = 20 + 15 = 35. 40 &gt; 35 ⇒ 40 là outlier.",review:"Ôn mục V — Quy tắc 1.5×IQR"},
+    {q:"Compare the standard deviations of \\(\\{1, 2, 3\\}\\) and \\(\\{1, 5, 9\\}\\).",opts:["First larger","Second larger","Equal","Cannot compare"],ans:1,exp:"\\(\\{1,5,9\\}\\) phân tán rộng hơn ⇒ std lớn hơn.",review:"Ôn mục III — So sánh std"},
+    {q:"The mean of 10 numbers is 50. What is the sum?",opts:["\\(5\\)","\\(50\\)","\\(500\\)","\\(5000\\)"],ans:2,exp:"Sum = mean × n = 50 × 10 = 500.",review:"Ôn mục I — Mean"},
+    {q:"Adding the value 100 to \\(\\{10, 20, 30\\}\\), which measure changes most?",opts:["Mean","Median","Both equally","Neither"],ans:0,exp:"Mean bị kéo mạnh bởi outlier 100; median ít bị ảnh hưởng hơn.",review:"Ôn mục VI — Effect of outliers"},
+    {q:"In a box plot, the line inside the box represents:",opts:["Mean","Median","Mode","Range"],ans:1,exp:"Đường bên trong hộp là median (Q2).",review:"Ôn mục IV — Box plot"},
+    {q:"What is the standard deviation of \\(\\{1, 2, 3, 4, 5\\}\\)?",opts:["\\(1\\)","\\(\\sqrt{2} \\approx 1.41\\)","\\(2\\)","\\(\\sqrt{5} \\approx 2.24\\)"],ans:1,exp:"Mean = 3; squared deviations = 4, 1, 0, 1, 4 ⇒ var = 10/5 = 2; std = \\(\\sqrt{2}\\).",review:"Ôn mục III — Standard deviation"},
+    {q:"Coefficient of variation (CV) is defined as:",opts:["std / mean","mean / std","variance / mean","mean / variance"],ans:0,exp:"CV = \\(\\dfrac{\\sigma}{\\bar{x}}\\) — đo độ phân tán tương đối.",review:"Ôn mục III — Nâng cao"},
+    {q:"In a symmetric distribution:",opts:["mean &gt; median","mean &lt; median","mean = median","No relation"],ans:2,exp:"Phân bố đối xứng ⇒ mean = median.",review:"Ôn mục VI — Symmetric"},
+    {q:"Combined mean of two groups \\((n_1, \\bar{x}_1)\\) and \\((n_2, \\bar{x}_2)\\):",opts:["\\(\\dfrac{\\bar{x}_1 + \\bar{x}_2}{2}\\)","\\(\\dfrac{n_1 \\bar{x}_1 + n_2 \\bar{x}_2}{n_1 + n_2}\\)","\\(\\sqrt{\\bar{x}_1 \\bar{x}_2}\\)","\\(n_1 \\bar{x}_1 - n_2 \\bar{x}_2\\)"],ans:1,exp:"Công thức weighted mean (trung bình có trọng số).",review:"Ôn mục VII — Combined mean"}
+  ]
+};
+
+const letterMap=['A','B','C','D'];
+
+function renderPractice(group){
+  const container=document.getElementById('panel-'+group);
+  container.innerHTML='';
+  practiceData[group].forEach(function(item,idx){
+    const card=document.createElement('div');
+    card.className='q-card';card.id='g'+group+'q'+idx;
+    let optsHtml='';
+    item.opts.forEach(function(o,i){
+      optsHtml+='<button class="option" data-group="'+group+'" data-q="'+idx+'" data-opt="'+i+'"><span class="letter">'+letterMap[i]+'</span><span class="opt-text">'+o+'</span></button>';
+    });
+    card.innerHTML='<div class="q-head"><div class="q-num">'+(idx+1)+'</div><div class="q-text">'+item.q+'</div></div><div class="options">'+optsHtml+'</div><div class="feedback" id="fb-'+group+'-'+idx+'"></div>';
+    container.appendChild(card);
+  });
+  if(window.renderMathInElement){renderMathInElement(container,{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+}
+document.querySelectorAll('.group-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.group-tab').forEach(function(t){t.classList.remove('active');});
+    document.querySelectorAll('.group-panel').forEach(function(p){p.classList.remove('active');});
+    tab.classList.add('active');
+    document.getElementById('panel-'+tab.dataset.group).classList.add('active');
+  });
+});
+[1,2,3].forEach(renderPractice);
+
+document.addEventListener('click',function(e){
+  const btn=e.target.closest('.option');
+  if(!btn||btn.classList.contains('disabled')) return;
+  const group=btn.dataset.group;if(!group) return;
+  const qIdx=+btn.dataset.q, optIdx=+btn.dataset.opt;
+  const card=document.getElementById('g'+group+'q'+qIdx);
+  const item=practiceData[group][qIdx];
+  const fb=document.getElementById('fb-'+group+'-'+qIdx);
+  const allOpts=card.querySelectorAll('.option');
+  allOpts.forEach(function(o){o.classList.add('disabled');});
+  allOpts[item.ans].classList.add('correct');
+  const isCorrect=optIdx===item.ans;
+  if(!isCorrect){btn.classList.add('wrong');}
+  card.classList.add(isCorrect?'correct':'wrong');
+  fb.className='feedback show '+(isCorrect?'ok':'no');
+  if(isCorrect){
+    fb.innerHTML='<strong>✅ Correct!</strong>'+item.exp+'<div class="review">💡 '+item.review+'</div>';
+    playDing();
+  } else {
+    fb.innerHTML='<strong>❌ Incorrect. Correct answer: '+letterMap[item.ans]+'</strong>'+item.exp+'<div class="review">📖 Ôn tập lại: '+item.review+'</div>';
+    playBuzz();
+  }
+  if(window.renderMathInElement){renderMathInElement(fb,{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+});
+
+/* ============ SAT TOPICS & RECOMMENDATIONS ============ */
+const TOPICS = {
+  MEAN:"Số trung bình (Mean)",
+  MEDIAN:"Trung vị (Median)",
+  MODE:"Mốt (Mode)",
+  RANGE:"Khoảng biến thiên (Range)",
+  QUARTILE:"Tứ phân vị (Quartiles)",
+  IQR:"Khoảng tứ phân vị (IQR)",
+  VARIANCE:"Phương sai (Variance)",
+  STDDEV:"Độ lệch chuẩn (Standard Deviation)",
+  OUTLIER:"Giá trị ngoại lệ (Outliers)",
+  BOXPLOT:"Biểu đồ hộp (Box Plot)",
+  COMPARE:"So sánh phân bố",
+  APPLICATION:"Ứng dụng thực tế"
+};
+const TOPIC_RECOMMENDATIONS = {
+  MEAN:"Ôn mục I: \\(\\bar{x} = \\dfrac{\\sum x_i}{n}\\); Sum = mean × n; thêm giá trị \\(x\\): mean mới \\(= \\dfrac{S+x}{n+1}\\).",
+  MEDIAN:"Ôn mục I: sắp xếp dữ liệu; n lẻ → giữa; n chẵn → TB cộng hai giá trị giữa. Median bền vững với outlier.",
+  MODE:"Ôn mục I: giá trị xuất hiện nhiều nhất; có thể có nhiều mốt hoặc không có mốt.",
+  RANGE:"Ôn mục II: Range = max − min; bị ảnh hưởng mạnh bởi outliers.",
+  QUARTILE:"Ôn mục II: Q1, Q2, Q3 là phân vị 25%, 50%, 75%; Q2 = median; tìm bằng median hai nửa.",
+  IQR:"Ôn mục II: IQR = Q3 − Q1; đo độ rộng 50% dữ liệu ở giữa; không bị outlier ảnh hưởng.",
+  VARIANCE:"Ôn mục III: \\(\\sigma^2 = \\dfrac{\\sum(x_i-\\mu)^2}{N}\\); nhân dữ liệu với k ⇒ variance × k².",
+  STDDEV:"Ôn mục III: \\(\\sigma = \\sqrt{\\sigma^2}\\); so sánh std bằng độ phân tán, không cần tính chính xác.",
+  OUTLIER:"Ôn mục V: ngoại lệ nếu &lt; Q1−1.5·IQR hoặc &gt; Q3+1.5·IQR.",
+  BOXPLOT:"Ôn mục IV: box = IQR (Q1 đến Q3); đường giữa = median; whiskers đến min/max (hoặc fence); outlier = dấu chấm.",
+  COMPARE:"Ôn mục VI: symmetric ⇒ mean = median; skewed right ⇒ mean &gt; median; skewed left ⇒ mean &lt; median; so sánh std theo độ phân tán.",
+  APPLICATION:"Ôn mục VII: weighted mean; đọc bảng tần số; bài toán thêm/bớt giá trị; bài toán thực tế về điểm số, thu nhập, thời gian."
+};
+
+/* ============ SAT SETS — 3 × 30 = 90 câu ============ */
+const SAT_SETS = {
+  1:{name:"Set 1 — Foundations",desc:"Mean, median, mode, range cơ bản; variance và standard deviation đơn giản; đọc biểu đồ hộp cơ bản.",questions:[
+    {q:"What is the mean of \\(\\{4, 6, 8, 10, 12\\}\\)?",opts:["\\(6\\)","\\(8\\)","\\(10\\)","\\(12\\)"],ans:1,topic:"MEAN",exp:"Mean = (4+6+8+10+12)/5 = 40/5 = 8.",review:"Ôn mục I — Mean"},
+    {q:"What is the median of \\(\\{7, 2, 5, 9, 1, 3, 6\\}\\)?",opts:["\\(3\\)","\\(5\\)","\\(6\\)","\\(7\\)"],ans:1,topic:"MEDIAN",exp:"Sắp xếp: 1, 2, 3, 5, 6, 7, 9. Giữa là 5.",review:"Ôn mục I — Median"},
+    {q:"What is the mode of \\(\\{2, 3, 3, 4, 4, 4, 5\\}\\)?",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(5\\)"],ans:2,topic:"MODE",exp:"Giá trị 4 xuất hiện 3 lần, nhiều nhất.",review:"Ôn mục I — Mode"},
+    {q:"What is the range of \\(\\{15, 8, 22, 5, 18\\}\\)?",opts:["\\(13\\)","\\(14\\)","\\(17\\)","\\(22\\)"],ans:2,topic:"RANGE",exp:"Range = 22 − 5 = 17.",review:"Ôn mục II — Range"},
+    {q:"The mean of 6 numbers is 12. What is their sum?",opts:["\\(2\\)","\\(6\\)","\\(72\\)","\\(18\\)"],ans:2,topic:"MEAN",exp:"Sum = 12 × 6 = 72.",review:"Ôn mục I — Mean"},
+    {q:"What is the median of \\(\\{10, 20, 30, 40, 50, 60\\}\\)?",opts:["\\(30\\)","\\(35\\)","\\(40\\)","\\(45\\)"],ans:1,topic:"MEDIAN",exp:"n chẵn ⇒ median = (30+40)/2 = 35.",review:"Ôn mục I — Median"},
+    {q:"What is the mode of \\(\\{1, 2, 2, 3, 4, 4, 4, 5\\}\\)?",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(5\\)"],ans:2,topic:"MODE",exp:"4 xuất hiện 3 lần, nhiều nhất.",review:"Ôn mục I — Mode"},
+    {q:"A data set is \\(\\{1,2,3,4,5\\}\\). If 10 is added to each value, the new mean is:",opts:["\\(3\\)","\\(10\\)","\\(13\\)","\\(15\\)"],ans:2,topic:"MEAN",exp:"Mean ban đầu = 3. Cộng 10 vào mỗi giá trị ⇒ mean mới = 3 + 10 = 13.",review:"Ôn mục III — Tính chất mean"},
+    {q:"Find the IQR of \\(\\{2, 4, 6, 8, 10, 12, 14, 16\\}\\).",opts:["\\(4\\)","\\(6\\)","\\(8\\)","\\(10\\)"],ans:2,topic:"IQR",exp:"Q1 = (4+6)/2 = 5; Q3 = (12+14)/2 = 13; IQR = 8.",review:"Ôn mục II — IQR"},
+    {q:"What is Q2 (median) of \\(\\{2, 4, 6, 8, 10, 12, 14\\}\\)?",opts:["\\(6\\)","\\(8\\)","\\(10\\)","\\(7\\)"],ans:1,topic:"QUARTILE",exp:"n = 7 lẻ ⇒ Q2 = giá trị thứ 4 = 8.",review:"Ôn mục II — Q2"},
+    {q:"What is the variance (population) of \\(\\{5, 5, 5, 5, 5\\}\\)?",opts:["\\(0\\)","\\(1\\)","\\(5\\)","\\(25\\)"],ans:0,topic:"VARIANCE",exp:"Mọi giá trị bằng 5 ⇒ mọi độ lệch = 0 ⇒ variance = 0.",review:"Ôn mục III — Variance"},
+    {q:"What is the standard deviation of \\(\\{0, 0, 0\\}\\)?",opts:["\\(0\\)","\\(1\\)","\\(3\\)","\\(9\\)"],ans:0,topic:"STDDEV",exp:"Mọi giá trị bằng nhau ⇒ std = 0.",review:"Ôn mục III — Std"},
+    {q:"What is the mean of \\(\\{1, 2, 3, 4, 5, 6, 7, 8, 9\\}\\)?",opts:["\\(4\\)","\\(5\\)","\\(6\\)","\\(4.5\\)"],ans:1,topic:"MEAN",exp:"Sum = 45; mean = 45/9 = 5.",review:"Ôn mục I — Mean"},
+    {q:"What is the median of \\(\\{1, 2, 3, 4, 5, 6, 7, 8\\}\\)?",opts:["\\(3.5\\)","\\(4\\)","\\(4.5\\)","\\(5\\)"],ans:2,topic:"MEDIAN",exp:"n chẵn ⇒ median = (4+5)/2 = 4.5.",review:"Ôn mục I — Median"},
+    {q:"What is the IQR of \\(\\{2, 4, 6, 8, 10\\}\\)?",opts:["\\(4\\)","\\(5\\)","\\(6\\)","\\(7\\)"],ans:2,topic:"IQR",exp:"Q1 = median\\(\\{2,4\\}\\) = 3; Q3 = median\\(\\{8,10\\}\\) = 9; IQR = 6.",review:"Ôn mục II — IQR"},
+    {q:"If the variance of a data set is 36, what is the standard deviation?",opts:["\\(4\\)","\\(6\\)","\\(18\\)","\\(36\\)"],ans:1,topic:"STDDEV",exp:"Std = √variance = √36 = 6.",review:"Ôn mục III — Std"},
+    {q:"If all values in a data set are multiplied by 2, the variance is:",opts:["Unchanged","× 2","× 4","× 8"],ans:2,topic:"VARIANCE",exp:"Nhân với k ⇒ variance × k² = × 4.",review:"Ôn mục III — Tính chất variance"},
+    {q:"If 5 is added to each value, the range is:",opts:["Decreased by 5","Increased by 5","Unchanged","Doubled"],ans:2,topic:"RANGE",exp:"Cộng hằng số không đổi max − min.",review:"Ôn mục II — Tính chất range"},
+    {q:"In a right-skewed distribution:",opts:["mean &lt; median","mean = median","mean &gt; median","No relation"],ans:2,topic:"COMPARE",exp:"Lệch phải ⇒ đuôi về phía giá trị lớn ⇒ mean &gt; median.",review:"Ôn mục VI"},
+    {q:"In a normal (symmetric) distribution:",opts:["mean &gt; median &gt; mode","mean = median = mode","mean &lt; median &lt; mode","Cannot determine"],ans:1,topic:"COMPARE",exp:"Phân bố chuẩn đối xứng ⇒ mean = median = mode.",review:"Ôn mục VI"},
+    {q:"Find Q1 of \\(\\{1, 2, 3, 4, 5, 6, 7, 8\\}\\).",opts:["\\(2\\)","\\(2.5\\)","\\(3\\)","\\(3.5\\)"],ans:1,topic:"QUARTILE",exp:"Nửa dưới = {1, 2, 3, 4}; Q1 = (2+3)/2 = 2.5.",review:"Ôn mục II — Q1"},
+    {q:"Find Q3 of \\(\\{1, 2, 3, 4, 5, 6, 7, 8\\}\\).",opts:["\\(5\\)","\\(6\\)","\\(6.5\\)","\\(7\\)"],ans:2,topic:"QUARTILE",exp:"Nửa trên = {5, 6, 7, 8}; Q3 = (6+7)/2 = 6.5.",review:"Ôn mục II — Q3"},
+    {q:"The five-number summary includes:",opts:["mean, median, mode, range, std","min, Q1, median, Q3, max","mean, Q1, Q2, Q3, std","min, mean, Q2, max, range"],ans:1,topic:"BOXPLOT",exp:"Five-number summary = {min, Q1, Q2 (median), Q3, max}.",review:"Ôn mục IV"},
+    {q:"In a box plot, outliers are typically displayed as:",opts:["Lines outside whiskers","Dots beyond whiskers","Inside the box","On the median line"],ans:1,topic:"BOXPLOT",exp:"Outliers biểu diễn bằng các dấu chấm bên ngoài râu.",review:"Ôn mục IV"},
+    {q:"If all values in a data set equal 10, what is the mean?",opts:["\\(0\\)","\\(1\\)","\\(10\\)","\\(100\\)"],ans:2,topic:"MEAN",exp:"Mean = 10.",review:"Ôn mục I — Mean"},
+    {q:"If Q1 = 8 and Q3 = 20, what is the IQR?",opts:["\\(8\\)","\\(10\\)","\\(12\\)","\\(28\\)"],ans:2,topic:"IQR",exp:"IQR = 20 − 8 = 12.",review:"Ôn mục II — IQR"},
+    {q:"Range is defined as:",opts:["max + min","max − min","max × min","(max+min)/2"],ans:1,topic:"RANGE",exp:"Range = max − min.",review:"Ôn mục II — Range"},
+    {q:"Median is the:",opts:["Middle value when sorted","Most frequent value","Average value","Max minus min"],ans:0,topic:"MEDIAN",exp:"Median = giá trị ở giữa sau khi sắp xếp.",review:"Ôn mục I — Median"},
+    {q:"Which measure is MOST affected by outliers?",opts:["Median","Mode","Mean","None"],ans:2,topic:"APPLICATION",exp:"Mean bị ảnh hưởng mạnh nhất bởi outlier; median và mode bền vững hơn.",review:"Ôn mục VI — Ảnh hưởng outlier"},
+    {q:"If Q1 = 15 and Q3 = 25, what is the upper fence for outliers?",opts:["\\(35\\)","\\(40\\)","\\(45\\)","\\(50\\)"],ans:1,topic:"OUTLIER",exp:"IQR = 10; upper fence = Q3 + 1.5·IQR = 25 + 15 = 40.",review:"Ôn mục V"}
+  ]},
+  2:{name:"Set 2 — Intermediate",desc:"Tứ phân vị, IQR, variance và std mức trung bình; so sánh phân bố; outliers; weighted mean; box plot interpretation.",questions:[
+    {q:"What is the mean of \\(\\{5, 8, 11, 14, 17, 20\\}\\)?",opts:["\\(11\\)","\\(12.5\\)","\\(13\\)","\\(14\\)"],ans:1,topic:"MEAN",exp:"Sum = 75; mean = 75/6 = 12.5.",review:"Ôn mục I — Mean"},
+    {q:"What is the median of \\(\\{5, 8, 11, 14, 17, 20\\}\\)?",opts:["\\(11\\)","\\(12.5\\)","\\(13\\)","\\(14\\)"],ans:1,topic:"MEDIAN",exp:"Median = (11+14)/2 = 12.5.",review:"Ôn mục I — Median"},
+    {q:"Find Q1 of \\(\\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}\\).",opts:["\\(2.5\\)","\\(3\\)","\\(3.5\\)","\\(4\\)"],ans:1,topic:"QUARTILE",exp:"Nửa dưới = {1, 2, 3, 4, 5}; Q1 = 3.",review:"Ôn mục II — Q1"},
+    {q:"Find Q3 of \\(\\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}\\).",opts:["\\(7\\)","\\(8\\)","\\(8.5\\)","\\(9\\)"],ans:1,topic:"QUARTILE",exp:"Nửa trên = {6, 7, 8, 9, 10}; Q3 = 8.",review:"Ôn mục II — Q3"},
+    {q:"Find IQR of \\(\\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}\\).",opts:["\\(3\\)","\\(4\\)","\\(5\\)","\\(6\\)"],ans:2,topic:"IQR",exp:"IQR = Q3 − Q1 = 8 − 3 = 5.",review:"Ôn mục II — IQR"},
+    {q:"Find the variance (population) of \\(\\{1, 3, 5, 7, 9\\}\\).",opts:["\\(4\\)","\\(8\\)","\\(12\\)","\\(16\\)"],ans:1,topic:"VARIANCE",exp:"Mean = 5; squared deviations: 16, 4, 0, 4, 16 ⇒ sum = 40; variance = 40/5 = 8.",review:"Ôn mục III — Variance"},
+    {q:"Find the standard deviation of \\(\\{1, 3, 5, 7, 9\\}\\).",opts:["\\(2\\)","\\(2\\sqrt{2} \\approx 2.83\\)","\\(4\\)","\\(8\\)"],ans:1,topic:"STDDEV",exp:"Std = √8 = 2√2 ≈ 2.83.",review:"Ôn mục III — Std"},
+    {q:"Compare the std of \\(\\{2, 4, 6, 8\\}\\) and \\(\\{2, 5, 8, 11\\}\\).",opts:["First larger","Second larger","Equal","Cannot compare"],ans:1,topic:"COMPARE",exp:"\\(\\{2,5,8,11\\}\\) phân tán rộng hơn ⇒ std lớn hơn.",review:"Ôn mục III — So sánh std"},
+    {q:"Group A: n = 10, mean = 20. Group B: n = 15, mean = 30. Combined mean?",opts:["\\(25\\)","\\(26\\)","\\(27\\)","\\(28\\)"],ans:1,topic:"APPLICATION",exp:"(10×20 + 15×30)/(10+15) = (200+450)/25 = 26.",review:"Ôn mục VII — Combined mean"},
+    {q:"If 20 is added to each value, the standard deviation:",opts:["Increases by 20","Decreases by 20","Unchanged","Doubles"],ans:2,topic:"STDDEV",exp:"Cộng hằng số vào mọi giá trị ⇒ std không đổi.",review:"Ôn mục III — Tính chất std"},
+    {q:"If every value is multiplied by 4, the variance is:",opts:["Unchanged","× 4","× 8","× 16"],ans:3,topic:"VARIANCE",exp:"Nhân với k ⇒ variance × k² = × 16.",review:"Ôn mục III — Tính chất variance"},
+    {q:"The sum of 20 numbers is 300. What is their mean?",opts:["\\(10\\)","\\(12\\)","\\(15\\)","\\(20\\)"],ans:2,topic:"MEAN",exp:"Mean = 300/20 = 15.",review:"Ôn mục I — Mean"},
+    {q:"The mean of 15 numbers is 8. What is their sum?",opts:["\\(80\\)","\\(100\\)","\\(120\\)","\\(150\\)"],ans:2,topic:"MEAN",exp:"Sum = 8 × 15 = 120.",review:"Ôn mục I — Mean"},
+    {q:"What is the mode of \\(\\{2,2,3,3,3,4,4,4,4\\}\\)?",opts:["\\(2\\)","\\(3\\)","\\(4\\)","No mode"],ans:2,topic:"MODE",exp:"4 xuất hiện 4 lần, nhiều nhất.",review:"Ôn mục I — Mode"},
+    {q:"What is the median of \\(\\{3,5,7,9,11,13,15,17\\}\\)?",opts:["\\(8\\)","\\(9\\)","\\(10\\)","\\(11\\)"],ans:2,topic:"MEDIAN",exp:"n = 8 chẵn ⇒ median = (9+11)/2 = 10.",review:"Ôn mục I — Median"},
+    {q:"Find Q1 of \\(\\{3,5,7,9,11,13,15,17\\}\\).",opts:["\\(5\\)","\\(6\\)","\\(7\\)","\\(8\\)"],ans:1,topic:"QUARTILE",exp:"Nửa dưới = {3,5,7,9}; Q1 = (5+7)/2 = 6.",review:"Ôn mục II — Q1"},
+    {q:"Find Q3 of \\(\\{3,5,7,9,11,13,15,17\\}\\).",opts:["\\(11\\)","\\(12\\)","\\(13\\)","\\(14\\)"],ans:3,topic:"QUARTILE",exp:"Nửa trên = {11,13,15,17}; Q3 = (13+15)/2 = 14.",review:"Ôn mục II — Q3"},
+    {q:"Find IQR of \\(\\{3,5,7,9,11,13,15,17\\}\\).",opts:["\\(6\\)","\\(7\\)","\\(8\\)","\\(9\\)"],ans:2,topic:"IQR",exp:"IQR = 14 − 6 = 8.",review:"Ôn mục II — IQR"},
+    {q:"Median is more resistant to outliers than mean because:",opts:["It uses all values","It depends on position, not magnitude","It is larger","It is smaller"],ans:1,topic:"COMPARE",exp:"Median chỉ phụ thuộc vị trí giữa, không bị ảnh hưởng bởi giá trị cực đoan.",review:"Ôn mục VI"},
+    {q:"In a box plot, the box represents:",opts:["Range","IQR (Q1 to Q3)","Mean ± std","Median ± mode"],ans:1,topic:"BOXPLOT",exp:"Chiều rộng hộp = IQR = Q3 − Q1.",review:"Ôn mục IV"},
+    {q:"In a right-skewed distribution, which is true?",opts:["mean &lt; median","mean = median","mean &gt; median","No relation"],ans:2,topic:"COMPARE",exp:"Lệch phải: mean bị kéo về phía giá trị lớn ⇒ mean &gt; median.",review:"Ôn mục VI"},
+    {q:"The 50th percentile equals:",opts:["mean","median","mode","range"],ans:1,topic:"QUARTILE",exp:"50th percentile = median = Q2.",review:"Ôn mục II — Percentile"},
+    {q:"The 90th percentile means:",opts:["90% of data above","90% of data below","10% of data below","Mean is 90"],ans:1,topic:"QUARTILE",exp:"90th percentile: 90% dữ liệu nằm dưới giá trị đó.",review:"Ôn mục II — Percentile"},
+    {q:"Adding a large outlier will affect which measure the MOST?",opts:["Median","Range and mean","Mode","IQR"],ans:1,topic:"OUTLIER",exp:"Range và mean bị ảnh hưởng mạnh nhất; median, IQR, mode bền vững hơn.",review:"Ôn mục VI"},
+    {q:"Removing the largest outlier typically:",opts:["Increases range","Decreases range","Increases median a lot","Increases IQR"],ans:1,topic:"OUTLIER",exp:"Bỏ max ⇒ range giảm (hoặc giữ nguyên nếu max không phải outlier).",review:"Ôn mục V"},
+    {q:"The five-number summary includes which of the following?",opts:["mean, std, range","Q1, Q3, mode","min, Q1, median, Q3, max","mode, range, mean"],ans:2,topic:"BOXPLOT",exp:"Five-number summary = {min, Q1, median, Q3, max}.",review:"Ôn mục IV"},
+    {q:"If variance = 4, the standard deviation equals:",opts:["\\(1\\)","\\(2\\)","\\(4\\)","\\(16\\)"],ans:1,topic:"STDDEV",exp:"Std = √4 = 2.",review:"Ôn mục III — Std"},
+    {q:"If standard deviation = 7, the variance equals:",opts:["\\(7\\)","\\(14\\)","\\(49\\)","\\(\\sqrt{7}\\)"],ans:2,topic:"VARIANCE",exp:"Variance = std² = 7² = 49.",review:"Ôn mục III — Variance"},
+    {q:"For any data set, the sum of all deviations \\((x_i - \\bar{x})\\) equals:",opts:["\\(n\\)","\\(\\bar{x}\\)","\\(0\\)","\\(1\\)"],ans:2,topic:"VARIANCE",exp:"\\(\\sum(x_i-\\bar{x}) = 0\\) — tổng các độ lệch luôn bằng 0.",review:"Ôn mục III — Tính chất"},
+    {q:"IQR is calculated as:",opts:["Q2 − Q1","Q3 − Q1","Q3 − Q2","max − min"],ans:1,topic:"IQR",exp:"IQR = Q3 − Q1.",review:"Ôn mục II — IQR"}
+  ]},
+  3:{name:"Set 3 — Advanced",desc:"Bài toán SAT-style phức hợp: outlier analysis, combined mean, so sánh phân bố, biến đổi dữ liệu và ứng dụng thực tế.",questions:[
+    {q:"An outlier lies outside which interval?",opts:["\\([Q_1, Q_3]\\)","\\([Q_1 - \\text{IQR}, Q_3 + \\text{IQR}]\\)","\\([Q_1 - 1.5\\,\\text{IQR}, Q_3 + 1.5\\,\\text{IQR}]\\)","\\([Q_1 - 2\\,\\text{IQR}, Q_3 + 2\\,\\text{IQR}]\\)"],ans:2,topic:"OUTLIER",exp:"Quy tắc 1.5 × IQR.",review:"Ôn mục V"},
+    {q:"For \\(\\{1, 2, 3, 4, 5, 6, 7, 8, 100\\}\\), Q1 = 2.5, Q3 = 7.5. Which value is an outlier?",opts:["\\(5\\)","\\(6\\)","\\(7\\)","\\(100\\)"],ans:3,topic:"OUTLIER",exp:"IQR = 5; upper fence = 7.5 + 7.5 = 15. 100 > 15 ⇒ outlier.",review:"Ôn mục V"},
+    {q:"For \\(\\{1, 2, ..., 10\\}\\), what is the population variance?",opts:["\\(5\\)","\\(8.25\\)","\\(9\\)","\\(10\\)"],ans:1,topic:"VARIANCE",exp:"Mean = 5.5; \\(\\sum(x_i-5.5)^2 = 82.5\\); variance = 8.25.",review:"Ôn mục III"},
+    {q:"Which set has a LARGER standard deviation: \\(\\{10, 20, 30\\}\\) or \\(\\{10, 15, 20\\}\\)?",opts:["First","Second","Equal","Cannot compare"],ans:0,topic:"COMPARE",exp:"\\(\\{10,20,30\\}\\) phân tán rộng hơn ⇒ std lớn hơn.",review:"Ôn mục III — So sánh std"},
+    {q:"Group A: n = 8, mean = 15. Group B: n = 12, mean = 20. Combined mean?",opts:["\\(15\\)","\\(17.5\\)","\\(18\\)","\\(20\\)"],ans:2,topic:"APPLICATION",exp:"(8×15 + 12×20)/20 = (120+240)/20 = 18.",review:"Ôn mục VII"},
+    {q:"If \\(y = 2x + 3\\), \\(\\text{mean}(x) = 10\\), \\(\\text{std}(x) = 2\\), what are mean(y) and std(y)?",opts:["\\(23,\\; 4\\)","\\(23,\\; 5\\)","\\(13,\\; 4\\)","\\(13,\\; 5\\)"],ans:0,topic:"STDDEV",exp:"mean(y) = 2·10 + 3 = 23; std(y) = |2|·2 = 4.",review:"Ôn mục III — Biến đổi"},
+    {q:"If \\(y = -x\\) and \\(\\text{std}(x) = 5\\), what is std(y)?",opts:["\\(-5\\)","\\(0\\)","\\(5\\)","\\(25\\)"],ans:2,topic:"STDDEV",exp:"Nhân với −1 ⇒ std nhân với |−1| = 1 ⇒ std(y) = 5.",review:"Ôn mục III"},
+    {q:"If variance = 16, standard deviation =",opts:["\\(2\\)","\\(4\\)","\\(8\\)","\\(256\\)"],ans:1,topic:"STDDEV",exp:"Std = √16 = 4.",review:"Ôn mục III"},
+    {q:"If all values are multiplied by \\(k\\), the std is multiplied by:",opts:["\\(k\\)","\\(k^2\\)","\\(\\sqrt{k}\\)","\\(1\\)"],ans:0,topic:"STDDEV",exp:"Nhân dữ liệu với \\(k > 0\\) ⇒ std × k.",review:"Ôn mục III"},
+    {q:"If all values are shifted by constant \\(c\\), the std:",opts:["Increases by c","Decreases by c","Unchanged","Doubles"],ans:2,topic:"STDDEV",exp:"Cộng hằng số không đổi std.",review:"Ôn mục III"},
+    {q:"For \\(\\{5, 5, 6, 6, 6, 7, 7\\}\\), which is TRUE?",opts:["mean = 5, median = 6","mean = 6, median = 6, mode = 6","mean = 7, mode = 6","All different"],ans:1,topic:"COMPARE",exp:"Sum = 42, mean = 6; median = 6 (giữa); mode = 6 (3 lần).",review:"Ôn mục I & VI"},
+    {q:"In \\(\\{1, 1, 2, 3, 100\\}\\), is 100 an outlier?",opts:["Yes, using IQR rule","No, it's within bounds","Only if n > 10","Cannot determine"],ans:0,topic:"OUTLIER",exp:"Q1 = 1, Q3 = 3, IQR = 2, upper fence = 3 + 3 = 6. 100 > 6 ⇒ outlier.",review:"Ôn mục V"},
+    {q:"After removing the outlier 100 from \\(\\{1,1,2,3,100\\}\\), the new mean is:",opts:["\\(1.5\\)","\\(1.75\\)","\\(2\\)","\\(2.5\\)"],ans:1,topic:"APPLICATION",exp:"New sum = 7, n = 4 ⇒ mean = 7/4 = 1.75.",review:"Ôn mục VII"},
+    {q:"In a right-skewed distribution, the order (smallest to largest) is usually:",opts:["mean, median, mode","mode, median, mean","median, mode, mean","mean, mode, median"],ans:1,topic:"COMPARE",exp:"Lệch phải: mode &lt; median &lt; mean.",review:"Ôn mục VI"},
+    {q:"In a left-skewed distribution, order is usually:",opts:["mean &lt; median &lt; mode","mean = median = mode","mode &lt; median &lt; mean","mean &gt; median &gt; mode"],ans:0,topic:"COMPARE",exp:"Lệch trái: mean &lt; median &lt; mode.",review:"Ôn mục VI"},
+    {q:"Adding constant to all values shifts the median by:",opts:["\\(0\\)","Same constant","Half the constant","Double the constant"],ans:1,topic:"MEDIAN",exp:"Median dịch chuyển đúng bằng hằng số cộng thêm.",review:"Ôn mục I"},
+    {q:"Multiplying all values by \\(k > 0\\) multiplies the median by:",opts:["\\(1\\)","\\(k\\)","\\(k^2\\)","\\(\\sqrt{k}\\)"],ans:1,topic:"MEDIAN",exp:"Median cũng nhân với k (nếu k > 0).",review:"Ôn mục I"},
+    {q:"Population variance is:",opts:["\\(\\sum(x_i-\\bar{x})/N\\)","\\(\\sum(x_i-\\bar{x})^2/N\\)","\\(\\sum(x_i-\\bar{x})^2/(N-1)\\)","\\(\\sqrt{\\sum(x_i-\\bar{x})^2/N}\\)"],ans:1,topic:"VARIANCE",exp:"Variance population = \\(\\sum(x_i-\\mu)^2/N\\).",review:"Ôn mục III"},
+    {q:"Sample variance differs from population variance by dividing by:",opts:["\\(n\\)","\\(n-1\\)","\\(n+1\\)","\\(n^2\\)"],ans:1,topic:"VARIANCE",exp:"Sample variance chia cho \\(n-1\\) (Bessel's correction).",review:"Ôn mục III"},
+    {q:"Standard deviation has units:",opts:["Same as data","Squared units","No units","\\(\\sqrt{\\text{units}}\\)"],ans:0,topic:"STDDEV",exp:"Std cùng đơn vị với dữ liệu; variance có đơn vị bình phương.",review:"Ôn mục III"},
+    {q:"Variance has units:",opts:["Same as data","Squared units","No units","Halved units"],ans:1,topic:"VARIANCE",exp:"Variance có đơn vị bình phương của dữ liệu.",review:"Ôn mục III"},
+    {q:"Weighted mean formula:",opts:["\\(\\sum x_i / n\\)","\\(\\sum w_i x_i / \\sum w_i\\)","\\(\\sqrt{\\sum x_i}\\)","\\(\\sum x_i^2 / n\\)"],ans:1,topic:"APPLICATION",exp:"Weighted mean = \\(\\sum w_i x_i / \\sum w_i\\).",review:"Ôn mục VII"},
+    {q:"Two groups have same mean but different stds. Combined variance is:",opts:["Average of stds","Same as either std","Larger than each individual variance (unless all equal)","Always zero"],ans:2,topic:"COMPARE",exp:"Combined variance tính cả phương sai trong nhóm và giữa các nhóm ⇒ thường lớn hơn.",review:"Ôn mục VII"},
+    {q:"Median always exists because:",opts:["It uses sum","It depends on sorted position","It requires n even","It equals mean"],ans:1,topic:"MEDIAN",exp:"Median dựa vào vị trí giữa của dữ liệu đã sắp xếp ⇒ luôn xác định được.",review:"Ôn mục I"},
+    {q:"A data set can have:",opts:["At most one mode","Multiple modes or no mode","Exactly one median","At most one outlier"],ans:1,topic:"MODE",exp:"Một mẫu có thể có nhiều mode hoặc không có mode; có thể có nhiều outlier.",review:"Ôn mục I"},
+    {q:"The width of a box in a box plot equals:",opts:["Range","IQR","Std","Mean"],ans:1,topic:"BOXPLOT",exp:"Chiều rộng hộp = IQR = Q3 − Q1.",review:"Ôn mục IV"},
+    {q:"The p-th percentile has how much data below it?",opts:["\\(p\\)","\\(p\\%\\)","\\(100-p\\)","\\(100-p\\%\\)"],ans:1,topic:"QUARTILE",exp:"p-th percentile có p% dữ liệu nằm dưới nó.",review:"Ôn mục II"},
+    {q:"In a box plot, outliers are shown:",opts:["Inside the box","On the whiskers","Beyond the whiskers as dots","As the median line"],ans:2,topic:"BOXPLOT",exp:"Outliers = chấm tròn bên ngoài râu.",review:"Ôn mục IV"},
+    {q:"Q2 equals:",opts:["Q1","Q3","Median","Mode"],ans:2,topic:"QUARTILE",exp:"Q2 = median = phân vị thứ 50.",review:"Ôn mục II"},
+    {q:"Data \\(\\{2,3,3,4,4,4,5,5,5,5\\}\\). The mode is:",opts:["\\(3\\)","\\(4\\)","\\(5\\)","No mode"],ans:2,topic:"MODE",exp:"5 xuất hiện 4 lần, nhiều nhất.",review:"Ôn mục I — Mode"}
+  ]}
+};
+
+/* ============ STATE ============ */
+const TEST_DURATION = 45 * 60;
+let testState = null;
+let testTimerInterval = null;
+let currentScoreId = null;
+
+/* ============ LEADERBOARD ============ */
+function saveScoreToLocalStorage(scoreData){
+  try {
+    const today = new Date().toLocaleDateString('vi-VN');
+    const key = 'sat_leaderboard_stats_' + today;
+    let board = JSON.parse(localStorage.getItem(key) || '[]');
+    board.push(scoreData);
+    board.sort(function(a,b){ if(b.correct !== a.correct) return b.correct - a.correct; return a.timeUsed - b.timeUsed; });
+    localStorage.setItem(key, JSON.stringify(board));
+  } catch(e){ console.error('Lỗi lưu bảng xếp hạng', e); }
+}
+function getLeaderboardHTML(){
+  try {
+    const today = new Date().toLocaleDateString('vi-VN');
+    const key = 'sat_leaderboard_stats_' + today;
+    const board = JSON.parse(localStorage.getItem(key) || '[]');
+    if(board.length === 0) return '';
+    const fmtTime = function(sec){ return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0'); };
+    let html = '<div class="result-section-title"><span class="icon">🏆</span> Bảng xếp hạng hôm nay ('+today+')</div><div style="overflow-x:auto;margin-bottom:22px;"><table class="topic-table"><thead><tr><th style="text-align:center">Hạng</th><th style="text-align:center">Bộ đề</th><th style="text-align:center">Kết quả</th><th style="text-align:center">Thời gian</th></tr></thead><tbody>';
+    board.slice(0,10).forEach(function(item,index){
+      const medal = index===0?'🥇':index===1?'🥈':index===2?'🥉':(index+1);
+      const isCurrent = (item.id === currentScoreId);
+      html += '<tr style="'+(isCurrent?'background:#eaf7eb;font-weight:bold;border-left:3px solid #4CAF50':'')+'"><td style="text-align:center;font-size:16px;">'+medal+'</td><td style="text-align:center">Bộ '+item.setNum+'</td><td style="text-align:center;color:'+(item.pct>=80?'#4CAF50':'#1B3A6B')+';font-weight:800;">'+item.correct+'/'+item.total+' ('+item.pct+'%)</td><td style="text-align:center">'+fmtTime(item.timeUsed)+'</td></tr>';
+    });
+    return html + '</tbody></table></div>';
+  } catch(e){ return ''; }
+}
+
+/* ============ RENDER SET SELECTOR ============ */
+function renderSatSetSelector(){
+  const c = document.getElementById('satSetSelector');
+  c.innerHTML = '';
+  Object.keys(SAT_SETS).forEach(function(k){
+    const s = SAT_SETS[k];
+    const card = document.createElement('div');
+    card.className = 'set-card';
+    card.onclick = function(){ startSetTest(parseInt(k)); };
+    card.innerHTML = '<div class="set-badge">SET '+k+'</div><h4>'+s.name+'</h4><p>'+s.desc+'</p><div class="set-meta"><span><strong>30</strong> câu</span><span><strong>45:00</strong> phút</span><span><strong>A–D</strong></span></div><div class="set-start">▶ Bắt đầu làm bài →</div>';
+    c.appendChild(card);
+  });
+}
+
+/* ============ START TEST ============ */
+function startSetTest(setNum){
+  testState = { setNum: setNum, current: 0, answers: new Array(30).fill(null), timeLeft: TEST_DURATION, submitted: false };
+  document.getElementById('satSetSelector').style.display = 'none';
+  document.getElementById('satResultScreen').style.display = 'none';
+  document.getElementById('satResultScreen').innerHTML = '';
+  document.getElementById('satTestScreen').style.display = 'block';
+  document.getElementById('testSetName').textContent = SAT_SETS[setNum].name;
+  renderNavGrid();
+  renderTestQuestion();
+  startTestTimer();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function startTestTimer(){
+  if(testTimerInterval) clearInterval(testTimerInterval);
+  updateTimerDisplay();
+  testTimerInterval = setInterval(function(){
+    if(!testState || testState.submitted) return;
+    testState.timeLeft--;
+    updateTimerDisplay();
+    if(testState.timeLeft <= 0){ clearInterval(testTimerInterval); testTimerInterval = null; submitTest(true); }
+  }, 1000);
+}
+
+function updateTimerDisplay(){
+  if(!testState) return;
+  const el = document.getElementById('testTimer');
+  const t = Math.max(0, testState.timeLeft);
+  const m = String(Math.floor(t/60)).padStart(2,'0');
+  const s = String(t%60).padStart(2,'0');
+  el.textContent = m+':'+s;
+  el.classList.remove('warning','danger');
+  if(t <= 60) el.classList.add('danger');
+  else if(t <= 300) el.classList.add('warning');
+}
+
+function renderNavGrid(){
+  const grid = document.getElementById('navGrid');
+  grid.innerHTML = '';
+  for(let i=0;i<30;i++){
+    const b = document.createElement('button');
+    b.className = 'nav-cell';
+    b.textContent = i+1;
+    b.onclick = (function(idx){ return function(){ testState.current = idx; renderTestQuestion(); renderNavGrid(); }; })(i);
+    grid.appendChild(b);
+  }
+  updateNavStatus();
+}
+
+function updateNavStatus(){
+  if(!testState) return;
+  document.querySelectorAll('#navGrid .nav-cell').forEach(function(c,i){
+    c.classList.toggle('answered', testState.answers[i] !== null);
+    c.classList.toggle('current', i === testState.current);
+  });
+  const answered = testState.answers.filter(function(a){ return a !== null; }).length;
+  document.getElementById('testProgress').textContent = 'Câu '+(testState.current+1)+' / 30 · Đã trả lời '+answered+'/30';
+}
+
+function renderTestQuestion(){
+  if(!testState) return;
+  const item = SAT_SETS[testState.setNum].questions[testState.current];
+  document.getElementById('testQNum').textContent = testState.current+1;
+  document.getElementById('testQText').innerHTML = item.q;
+  const optsC = document.getElementById('testOptions');
+  optsC.innerHTML = '';
+  item.opts.forEach(function(o,i){
+    const b = document.createElement('button');
+    b.className = 'option';
+    if(testState.answers[testState.current] === i) b.classList.add('selected');
+    b.innerHTML = '<span class="letter">'+letterMap[i]+'</span><span class="opt-text">'+o+'</span>';
+    b.onclick = function(){ selectTestOption(i); };
+    optsC.appendChild(b);
+  });
+  document.getElementById('testQuestionCard').classList.remove('correct','wrong');
+  document.getElementById('btnPrev').disabled = testState.current === 0;
+  document.getElementById('btnNext').textContent = testState.current === 29 ? '📝 Nộp bài' : 'Câu tiếp →';
+  if(window.renderMathInElement){ renderMathInElement(document.getElementById('testQuestionCard'), {delimiters:[{left:'\\(',right:'\\)',display:false}]}); }
+  updateNavStatus();
+}
+
+function selectTestOption(optIdx){
+  if(!testState || testState.submitted) return;
+  testState.answers[testState.current] = optIdx;
+  document.querySelectorAll('#testOptions .option').forEach(function(o,i){ o.classList.toggle('selected', i === optIdx); });
+  updateNavStatus();
+}
+
+function goToQuestion(i){ if(!testState || i<0 || i>29) return; testState.current = i; renderTestQuestion(); }
+
+/* ============ BUTTON WIRING ============ */
+document.getElementById('btnPrev').onclick = function(){ if(testState) goToQuestion(testState.current - 1); };
+document.getElementById('btnNext').onclick = function(){
+  if(!testState) return;
+  if(testState.current === 29) submitTest(false);
+  else goToQuestion(testState.current + 1);
+};
+document.getElementById('btnQuitTest').onclick = function(){
+  let ok = true;
+  try { ok = window.confirm('Bạn có chắc muốn thoát? Bài làm sẽ không được lưu.'); } catch(e){ ok = true; }
+  if(ok === false) return;
+  if(testTimerInterval){ clearInterval(testTimerInterval); testTimerInterval = null; }
+  testState = null;
+  document.getElementById('satTestScreen').style.display = 'none';
+  document.getElementById('satSetSelector').style.display = 'grid';
+};
+document.getElementById('btnSubmitTest').onclick = function(){ submitTest(false); };
+document.getElementById('btnForceResult').onclick = function(){
+  if(!testState || testState.submitted) return;
+  submitTest(true);
+};
+
+/* ============ SUBMIT TEST ============ */
+function submitTest(auto){
+  if(!testState || testState.submitted) return;
+  if(!auto){
+    const unanswered = testState.answers.filter(function(a){ return a === null; }).length;
+    if(unanswered > 0){
+      let ok = true;
+      try { ok = window.confirm('Bạn còn ' + unanswered + ' câu chưa trả lời. Vẫn nộp bài?'); } catch(e){ ok = true; }
+      if(ok === false) return;
+    }
+  }
+  testState.submitted = true;
+  if(testTimerInterval){ clearInterval(testTimerInterval); testTimerInterval = null; }
+  try {
+    const questions = SAT_SETS[testState.setNum].questions;
+    let correct = 0;
+    testState.answers.forEach(function(ans,i){ if(ans === questions[i].ans) correct++; });
+    const timeUsed = TEST_DURATION - testState.timeLeft;
+    currentScoreId = Date.now().toString();
+    saveScoreToLocalStorage({
+      id: currentScoreId,
+      setNum: testState.setNum, correct: correct, total: questions.length,
+      pct: Math.round(correct / questions.length * 100), timeUsed: timeUsed
+    });
+  } catch(e){ console.error('Lỗi lưu điểm:', e); }
+  document.getElementById('satTestScreen').style.display = 'none';
+  try { renderResult(); } catch(e){
+    console.error('Lỗi render kết quả:', e);
+    showBasicResult(e);
+  }
+  const rs = document.getElementById('satResultScreen');
+  if(rs){
+    rs.style.display = 'block';
+    if(!rs.innerHTML || rs.innerHTML.trim() === ''){ showBasicResult(new Error('Empty content')); }
+  }
+  try { window.scrollTo({top:0,behavior:'smooth'}); } catch(e){ window.scrollTo(0,0); }
+  try { playFanfare(); } catch(e){}
+}
+
+function showBasicResult(err){
+  const c = document.getElementById('satResultScreen');
+  if(!c) return;
+  const questions = (testState && SAT_SETS[testState.setNum]) ? SAT_SETS[testState.setNum].questions : [];
+  let correct = 0;
+  if(testState && questions.length){
+    testState.answers.forEach(function(ans,i){ if(ans === questions[i].ans) correct++; });
+  }
+  const total = questions.length || 30;
+  const pct = Math.round(correct / total * 100);
+  c.innerHTML =
+    '<div class="card" style="border-left:6px solid #4CAF50">' +
+    '<h3>✅ Đã hoàn thành bài thi</h3>' +
+    '<div style="display:flex;gap:24px;align-items:center;margin:20px 0;flex-wrap:wrap">' +
+    '<div style="background:#EAF0F9;padding:20px 32px;border-radius:12px;text-align:center">' +
+    '<div style="font-size:42px;font-weight:800;color:#1B3A6B">' + correct + '</div>' +
+    '<div style="font-size:14px;color:#5b6778">/ ' + total + ' câu đúng</div>' +
+    '</div>' +
+    '<div style="background:linear-gradient(135deg,#1B3A6B,#2C5AA0);padding:20px 32px;border-radius:12px;text-align:center;color:#fff">' +
+    '<div style="font-size:42px;font-weight:800;color:#F5B400">' + pct + '%</div>' +
+    '<div style="font-size:14px;opacity:.9">chính xác</div>' +
+    '</div>' +
+    '</div>' +
+    '<p style="color:#E53935;font-size:13px;margin-top:10px">⚠ Chi tiết phân tích không hiển thị: ' + (err && err.message ? err.message : 'Lỗi không xác định') + '</p>' +
+    '<div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">' +
+    '<button class="btn btn-primary" onclick="backToSetSelector()">📚 Chọn bộ khác</button>' +
+    '<button class="btn btn-outline" onclick="switchTab(\'knowledge\')">📖 Ôn lý thuyết</button>' +
+    '<button class="btn btn-outline" onclick="switchTab(\'practice\')">✏️ Luyện tập</button>' +
+    '</div></div>';
+  c.style.display = 'block';
+}
+
+/* ============ RENDER RESULT CHI TIẾT ============ */
+function renderResult(){
+  const c = document.getElementById('satResultScreen');
+  if(!c) return;
+  c.style.display = 'block';
+
+  const setNum = testState.setNum;
+  const questions = SAT_SETS[setNum].questions;
+  const autoSubmitted = testState.timeLeft <= 0;
+
+  let correct = 0, wrong = 0, unanswered = 0;
+  const topicStat = {};
+  Object.keys(TOPICS).forEach(function(k){ topicStat[k] = { correct: 0, total: 0 }; });
+  const wrongList = [];
+
+  questions.forEach(function(item,i){
+    const ans = testState.answers[i];
+    topicStat[item.topic].total++;
+    if(ans === null){ unanswered++; wrongList.push({ idx: i, item: item, yourAns: null }); }
+    else if(ans === item.ans){ correct++; topicStat[item.topic].correct++; }
+    else { wrong++; wrongList.push({ idx: i, item: item, yourAns: ans }); }
+  });
+
+  const total = questions.length;
+  const pct = Math.round(correct / total * 100);
+  const estimatedSAT = Math.min(800, Math.max(200, Math.round(200 + (correct/total)*600)));
+  const timeUsed = TEST_DURATION - testState.timeLeft;
+  const tm = String(Math.floor(timeUsed/60)).padStart(2,'0');
+  const ts = String(timeUsed%60).padStart(2,'0');
+  const answered = correct + wrong;
+  const avgTime = answered > 0 ? Math.round(timeUsed/answered) : 0;
+  const avgTimeStr = Math.floor(avgTime/60) + ':' + String(avgTime%60).padStart(2,'0');
+
+  let level, levelColor, levelIcon, levelDesc, levelAdvice;
+  if(pct >= 90){ level="XUẤT SẮC"; levelColor="#4CAF50"; levelIcon="🏆"; levelDesc="Kiến thức thống kê rất vững vàng!"; levelAdvice="Luyện thêm bài toán combined mean và biến đổi dữ liệu để duy trì phong độ."; }
+  else if(pct >= 75){ level="TỐT"; levelColor="#2C5AA0"; levelIcon="⭐"; levelDesc="Nắm tốt các số đo trung tâm và độ phân tán."; levelAdvice="Tập trung vào outlier, so sánh std và bài toán thực tế để đạt 750+."; }
+  else if(pct >= 60){ level="KHÁ"; levelColor="#E8A317"; levelIcon="📈"; levelDesc="Nền tảng khá nhưng còn nhầm lẫn ở tứ phân vị hoặc biểu đồ hộp."; levelAdvice="Ôn lại mục II, IV và V, làm lại các câu sai."; }
+  else if(pct >= 40){ level="TRUNG BÌNH"; levelColor="#FF9800"; levelIcon="📚"; levelDesc="Cần củng cố mean, median và các công thức cơ bản."; levelAdvice="Đọc kỹ mục I–III và làm lại Nhóm 1."; }
+  else { level="CẦN CỐ GẮNG"; levelColor="#E53935"; levelIcon="🔧"; levelDesc="Cần xây dựng lại nền tảng thống kê."; levelAdvice="Bắt đầu từ định nghĩa mean, median, mode, range; sau đó sang quartiles và std."; }
+
+  let timeEval, timeIcon, timeColor;
+  if(timeUsed <= TEST_DURATION*0.7){ timeEval="Quản lý thời gian xuất sắc"; timeIcon="🚀"; timeColor="#4CAF50"; }
+  else if(timeUsed <= TEST_DURATION*0.9){ timeEval="Quản lý thời gian tốt"; timeIcon="⏱️"; timeColor="#2C5AA0"; }
+  else if(timeUsed < TEST_DURATION){ timeEval="Sát giờ — cần tăng tốc"; timeIcon="⏰"; timeColor="#E8A317"; }
+  else { timeEval="Hết giờ"; timeIcon="🚨"; timeColor="#E53935"; }
+
+  const topicList = Object.keys(topicStat)
+    .filter(function(k){ return topicStat[k].total > 0; })
+    .map(function(k){ return { key: k, name: TOPICS[k], correct: topicStat[k].correct, total: topicStat[k].total, pct: Math.round(topicStat[k].correct/topicStat[k].total*100) }; })
+    .sort(function(a,b){ return a.pct - b.pct; });
+
+  const weakTopics = topicList.filter(function(t){ return t.pct < 60; });
+  const mediumTopics = topicList.filter(function(t){ return t.pct >= 60 && t.pct < 80; });
+  const strongTopics = topicList.filter(function(t){ return t.pct >= 80; });
+
+  let roadmapHTML = '';
+  if(weakTopics.length > 0){
+    roadmapHTML += '<div class="roadmap-phase phase-1"><div class="phase-num">1</div><div class="phase-content"><h4>Giai đoạn 1: Củng cố kiến thức nền tảng <span class="phase-time">⏳ 1–3 ngày</span></h4><ul>';
+    weakTopics.forEach(function(t){ roadmapHTML += '<li><strong>' + t.name + '</strong> (' + t.correct + '/' + t.total + ' = ' + t.pct + '%) — ' + TOPIC_RECOMMENDATIONS[t.key] + '</li>'; });
+    roadmapHTML += '</ul><div class="phase-actions"><button class="btn btn-outline btn-sm" onclick="switchTab(\'knowledge\')">📖 Ôn lý thuyết</button><button class="btn btn-outline btn-sm" onclick="switchTab(\'practice\')">✏️ Luyện nhóm cơ bản</button></div></div></div>';
+  }
+  if(mediumTopics.length > 0){
+    roadmapHTML += '<div class="roadmap-phase phase-2"><div class="phase-num">2</div><div class="phase-content"><h4>Giai đoạn 2: Luyện tập nâng cao <span class="phase-time">⏳ 3–5 ngày</span></h4><ul>';
+    mediumTopics.forEach(function(t){ roadmapHTML += '<li><strong>' + t.name + '</strong> (' + t.correct + '/' + t.total + ' = ' + t.pct + '%) — Cần thêm bài tập trung bình–khó.</li>'; });
+    roadmapHTML += '</ul><div class="phase-actions"><button class="btn btn-outline btn-sm" onclick="switchTab(\'practice\')">✏️ Luyện nhóm trung bình</button><button class="btn btn-primary btn-sm" onclick="restartSameSet()">🔄 Làm lại bộ đề này</button></div></div></div>';
+  }
+  roadmapHTML += '<div class="roadmap-phase phase-3"><div class="phase-num">3</div><div class="phase-content"><h4>Giai đoạn 3: ' + (strongTopics.length > 0 ? 'Duy trì & mở rộng' : 'Luyện đề tổng hợp') + ' <span class="phase-time">⏳ Liên tục</span></h4><ul>';
+  if(strongTopics.length > 0){
+    strongTopics.forEach(function(t){ roadmapHTML += '<li><strong>' + t.name + '</strong> (' + t.correct + '/' + t.total + ' = ' + t.pct + '%) — Duy trì phong độ.</li>'; });
+  } else {
+    roadmapHTML += '<li>Luyện các bộ đề khác để đa dạng dạng bài.</li>';
+  }
+  roadmapHTML += '</ul><div class="phase-actions"><button class="btn btn-outline btn-sm" onclick="backToSetSelector()">📚 Chọn bộ khác</button><button class="btn btn-outline btn-sm" onclick="switchTab(\'sat\')">⏱️ Luyện đề khác</button></div></div></div>';
+
+  let topicTableHTML = '';
+  topicList.forEach(function(t){
+    let cls = '', status = '', statusColor = '';
+    if(t.pct >= 80){ status = '✅ Vững'; statusColor = '#4CAF50'; }
+    else if(t.pct >= 60){ cls = 'warn'; status = '⚠ Cần luyện'; statusColor = '#E8A317'; }
+    else { cls = 'bad'; status = '🔴 Yếu'; statusColor = '#E53935'; }
+    topicTableHTML += '<tr><td><strong>' + t.name + '</strong></td><td><div class="topic-bar-cell"><div class="topic-bar"><div class="topic-bar-fill ' + cls + '" style="width:' + t.pct + '%"></div></div><span style="min-width:44px;font-weight:700;color:#5b6778">' + t.pct + '%</span></div></td><td style="text-align:right"><span class="topic-score">' + t.correct + '/' + t.total + '</span></td><td style="text-align:center"><strong style="color:' + statusColor + ';font-size:13px">' + status + '</strong></td></tr>';
+    topicTableHTML += '<tr><td colspan="4" style="padding:0 16px 12px;border-bottom:1px solid #eef2f8"><div class="topic-recommend">📌 <strong>Gợi ý:</strong> ' + TOPIC_RECOMMENDATIONS[t.key] + '</div></td></tr>';
+  });
+
+  let wrongHTML = '';
+  if(wrongList.length > 0){
+    wrongHTML += '<div class="result-section-title"><span class="icon" style="background:#fdeaea;color:#E53935">🔍</span> Phân tích ' + wrongList.length + ' câu sai / bỏ trống</div>';
+    wrongList.forEach(function(w){
+      const item = w.item;
+      const cls = w.yourAns === null ? 'unanswered' : '';
+      const yourText = w.yourAns === null ? '— Không trả lời —' : item.opts[w.yourAns];
+      wrongHTML += '<div class="wrong-item ' + cls + '">' +
+        '<div class="wrong-head"><div class="wrong-num">' + (w.idx+1) + '</div><div class="wrong-q">' + item.q + '<div><span class="topic-tag">' + TOPICS[item.topic] + '</span></div></div></div>' +
+        '<div class="ans-row">' +
+        '<div class="ans-box your"><div class="lbl">Bạn chọn</div><div class="val">' + (w.yourAns === null ? '—' : letterMap[w.yourAns] + '. ') + yourText + '</div></div>' +
+        '<div class="ans-box correct"><div class="lbl">Đáp án đúng</div><div class="val">' + letterMap[item.ans] + '. ' + item.opts[item.ans] + '</div></div>' +
+        '</div>' +
+        '<div class="exp-box"><div class="lbl">🧮 Lời giải</div>' + item.exp + '</div>' +
+        '<div class="review-box">📖 ' + item.review + '</div>' +
+        '</div>';
+    });
+  } else {
+    wrongHTML = '<div class="roadmap" style="border-left-color:#4CAF50"><h3>🎯 Tất cả câu trả lời đều chính xác!</h3><p style="font-size:14px;color:#5b6778">Không có câu nào sai. Em đã sẵn sàng cho các bộ đề khó hơn!</p></div>';
+  }
+
+  c.innerHTML =
+    '<div class="result-hero">' +
+    '<div>' +
+    '<h2>🎉 Hoàn thành ' + SAT_SETS[setNum].name + '!</h2>' +
+    '<p>Bạn đã làm ' + total + ' câu trong ' + tm + ':' + ts + '. ' + (autoSubmitted ? '⏰ Hết giờ! ' : '') + (unanswered > 0 ? 'Còn ' + unanswered + ' câu chưa trả lời.' : '') + '</p>' +
+    '</div>' +
+    '<div class="result-score"><div class="num">' + correct + '</div><div class="den">/ ' + total + ' câu đúng</div><div class="pct">' + pct + '%</div></div>' +
+    '</div>' +
+
+    '<div class="level-banner" style="border-left-color:' + levelColor + '">' +
+    '<div class="level-icon" style="background:' + levelColor + '">' + levelIcon + '</div>' +
+    '<div class="level-content"><h3 style="color:' + levelColor + '">Đánh giá: ' + level + '</h3><p>' + levelDesc + '</p><div class="level-advice"><strong>💡 Định hướng:</strong> ' + levelAdvice + '</div></div>' +
+    '</div>' +
+
+    '<div class="result-stats">' +
+    '<div class="stat-box green"><div class="label">✅ Đúng</div><div class="value">' + correct + '</div><div class="sub">Chiếm ' + pct + '%</div></div>' +
+    '<div class="stat-box red"><div class="label">❌ Sai</div><div class="value">' + wrong + '</div><div class="sub">Cần xem lại</div></div>' +
+    '<div class="stat-box yellow"><div class="label">⚠ Bỏ trống</div><div class="value">' + unanswered + '</div><div class="sub">Chưa trả lời</div></div>' +
+    '<div class="stat-box"><div class="label">🎯 SAT ước lượng</div><div class="value">' + estimatedSAT + '</div><div class="sub">/ 800</div></div>' +
+    '</div>' +
+
+    getLeaderboardHTML() +
+
+    '<div class="result-section-title"><span class="icon">⏱</span> Phân tích thời gian</div>' +
+    '<div class="time-analysis">' +
+    '<div class="time-block"><div class="tb-icon">⏰</div><div class="tb-content"><div class="tb-label">Tổng thời gian</div><div class="tb-value">' + tm + ':' + ts + '</div><div class="tb-desc">/ 45:00</div></div></div>' +
+    '<div class="time-block"><div class="tb-icon">⚡</div><div class="tb-content"><div class="tb-label">Trung bình / câu</div><div class="tb-value">' + avgTimeStr + '</div><div class="tb-desc">Mục tiêu: ≤ 1:30</div></div></div>' +
+    '<div class="time-block"><div class="tb-icon" style="background:' + timeColor + '22;color:' + timeColor + '">' + timeIcon + '</div><div class="tb-content"><div class="tb-label">Đánh giá</div><div class="tb-value" style="color:' + timeColor + ';font-size:15px">' + timeEval + '</div><div class="tb-desc">' + (timeUsed < TEST_DURATION ? 'Còn dư ' + Math.floor((TEST_DURATION-timeUsed)/60) + ':' + String((TEST_DURATION-timeUsed)%60).padStart(2,'0') : 'Đã dùng hết') + '</div></div></div>' +
+    '</div>' +
+
+    '<div class="result-section-title"><span class="icon">📊</span> Phân tích theo chủ đề</div>' +
+    '<table class="topic-table"><thead><tr><th style="width:28%">Chủ đề</th><th style="width:38%">Tỉ lệ đúng</th><th style="width:14%;text-align:right">Số câu</th><th style="width:20%;text-align:center">Trạng thái</th></tr></thead><tbody>' + topicTableHTML + '</tbody></table>' +
+
+    '<div class="roadmap"><h3>🗺️ Lộ trình ôn tập cá nhân hóa</h3><p class="roadmap-sub">Dựa trên kết quả của em, đây là lộ trình được thiết kế riêng:</p>' + roadmapHTML + '</div>' +
+
+    wrongHTML +
+
+    '<div class="result-actions">' +
+    '<button class="btn btn-primary" onclick="restartSameSet()">🔄 Làm lại ' + SAT_SETS[setNum].name + '</button>' +
+    '<button class="btn btn-outline" onclick="backToSetSelector()">📚 Chọn bộ khác</button>' +
+    '<button class="btn btn-outline" onclick="switchTab(\'knowledge\')">📖 Ôn lý thuyết</button>' +
+    '<button class="btn btn-outline" onclick="switchTab(\'practice\')">✏️ Luyện tập thêm</button>' +
+    '</div>';
+
+  if(window.renderMathInElement){ renderMathInElement(c, {delimiters:[{left:'\\(',right:'\\)',display:false}]}); }
+}
+
+function restartSameSet(){
+  if(!testState) return;
+  const setNum = testState.setNum;
+  document.getElementById('satResultScreen').style.display = 'none';
+  document.getElementById('satResultScreen').innerHTML = '';
+  startSetTest(setNum);
+}
+
+function backToSetSelector(){
+  document.getElementById('satResultScreen').style.display = 'none';
+  document.getElementById('satResultScreen').innerHTML = '';
+  document.getElementById('satTestScreen').style.display = 'none';
+  document.getElementById('satSetSelector').style.display = 'grid';
+  testState = null;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ============ INIT ============ */
+renderSatSetSelector();
+
+window.addEventListener('load', function(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body, {delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});
+  }
+});
+
+console.log('[SAT Statistics Web] ✅ Loaded. 3 sets × 30 questions = 90 questions total.');
+</script>
+</body>
+</html>
